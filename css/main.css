@@ -1,3 +1,4 @@
+
 body{
     font-family: MISAGoogleSans;
     font-size: 13px;
@@ -15,4 +16,14 @@ body{
 @font-face {
     font-family:  MISAGoogleSans-Italic ;
     src: url("../content/font/GoogleSans-Italic.otf");
+}
+
+.text-align-right{
+    text-align: right;
+}
+.text-align-left{
+    text-align: left;
+}
+.text-align-center{
+    text-align: center;
 }

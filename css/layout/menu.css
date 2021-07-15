@@ -1,35 +1,53 @@
 .menu{
     width: 225px;;
     height:calc(100vh - 49px);
-    background-color:#e5e5e5;
+    background-color:white;
     border-right-color:#e5e5e5;
     border-right-width:1px;
     border-right-style:solid;
 }
-.menu.menu-item{
+ .menu .menu-item{
     display: flex;
     align-items: center;
     height: 44px;
     width: 100%;
     background-color:white ;
-    color: white;
+    color: black;
     padding-left: 16px;
     box-sizing: border-box;
     cursor: pointer;
-}
-.menu.menu-item.menu-item-select{
+} 
+.menu .menu-item.menu-item-select{
 background-color: #019160;
+color: black;
 
 }
-.menu.menu-item:hover{
-    background-color: #e5e5e5;
-    color: black;
+.menu .menu-item:hover{
+    background-color: #019160;
+    color: white;
 }
-.menu.menu-item.menu-icon{
+.menu .menu-icon.menu-icon-active{
+    background-color: #019160;
+    color: white;
+}
+.menu .menu-item .menu-icon{
     width: 20px;
     height: 20px;
-    background-color: white;
     margin-right: 10px;
+    background-size: contain;
+} 
+.menu-icon.menu-icon-dashboard{
+    background-image: url("../../content/icon/dashboard.png"); 
+}
+.menu-icon.menu-icon-report{
+    background-image: url("../../content/icon/report.png");
+}
+.menu-icon.menu-icon-buy{
     background-image: url("../../content/icon/dashboard.png");
-    background: contain;
+}
+.menu-icon.menu-icon-dic-employee{
+    background-image: url("../../content/icon/dic-employee.png");
+}
+.menu-icon.menu-icon-setting{
+    background-image: url("../../content/icon/setting.png");
 }

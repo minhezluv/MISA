@@ -1,0 +1,16 @@
+.icon-16{
+    width: 16px;
+    height:16px;
+}
+.icon-24{
+    width: 24px;
+    width: 24px;
+}
+.icon{
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position:center ;
+}
+.icon .bombobox-selected{
+    background-image: url("../../content/icon/refresh.png");
+}

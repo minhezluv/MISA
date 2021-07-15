@@ -1,17 +1,92 @@
-.button{
+.btn{
+    display: flex;
     height: 40px;
     border-radius: 4px;
     color: #ffffff;
-    padding-left:24px ;
+    padding-left:16px ;
     text-align: center;
-    padding-right: 24px;
+    padding-right: 16px;
     background-color: #019160;
     line-height: 40px;
-    width: 40px;
+    font-size: 13px;
+    font-family: MISAGoogleSans;
+    border: none;
+    outline: none;
+    align-items: center;
+    cursor: pointer;
 }
-.button:hover{
+.btn .btn-text{
+    margin-left: 8px;
+}
+.btn:hover{
     background-color: #2FBEBE;
 }
-.button.button:active{
+.btn.button:active{
     background-color: #01B075;
 }
+.btn .icon-add{
+    width: 16px;
+    height: 16px;
+    background-image: url("../../content/icon/add.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.m-second-button{
+    border-radius: 4px;
+    border:1px solid #bbbbbb;
+    color: #000000;
+    padding-left: 24px;
+    padding-right: 24px;
+    text-align: center;
+    cursor: pointer;
+    background-color: white;
+}
+.m-second-button:hover{
+    background-color: #e9ebee;
+}
+.m-btn-refresh{
+    background-image: url("../../content/icon/refresh.png");
+    background-repeat: no-repeat;
+    background-position: center ;
+    outline: none;
+    height: 40px;
+    width: 40px;
+}
+.account-more-setting{
+    background-image: url("../../content/icon/option.png");
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    margin-left: 16px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+}
+ .m-btn-firstpage{
+    background-image: url("../../content/icon/btn-firstpage.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 0%;
+    border:1px;
+}
+
+.m-btn-prevpage{
+    background-image: url("../../content/icon/btn-prev-page.svg");
+    background-size: contain;
+    background-repeat: no-repeat; 
+    border-radius: 0%;
+    border:1px
+}
+
+.m-btn-nextpage{
+    background-image: url("../../content/icon/btn-next-page.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+}
+
+.m-btn-lastpage{
+    background-image: url("../../content/icon/btn-lastpage.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+   
+} 

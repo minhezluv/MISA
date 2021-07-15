@@ -1,0 +1,51 @@
+ /* select{
+    position: absolute;
+    height: 40px;
+    width: 180px;
+    margin-left: 24px;
+   border: 1px solid #bbbbbb;
+   font-family: MISAGoogleSans;
+   border-radius: 4px;
+   outline: none;
+} 
+
+option{
+    height: 40px;
+    width: 180px;  
+    outline: none;
+    font-family: MISAGoogleSans;
+    color: black;
+    border:1px #bbbbbb;
+} */
+option {
+    white-space: nowrap;
+    height: 40px;
+    width: 180px; 
+    outline: none;
+}
+option:hover{
+    background-color: #e9ebee;
+}
+option:active{
+    background-color: #019160;
+}
+.select-company{
+    border: 1px ;
+    font-family: MISAGoogleSans-Bold;    
+} 
+
+select {
+    outline: none;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    box-sizing: border-box;
+    align-items: center;
+    border: 1px solid #bbbbbb;
+    cursor: default;
+    margin-left: 24px;
+    height: 40px;
+    width: 180px;
+    border-radius: 4px;
+}

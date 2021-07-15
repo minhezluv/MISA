@@ -1,0 +1,6 @@
+.grid-employee{
+    width: 100%;
+    overflow-y: auto;
+    height: calc(100vh - 202px);
+}
+
