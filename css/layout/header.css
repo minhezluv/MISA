@@ -39,7 +39,12 @@
     align-items: center;
     border-bottom: 1px solid #e5e5e5;
 }
-
+.combobox.header-company-list{
+    border-color: white;
+}
+.btn-combobox.header-company-list{
+    border-color: white;
+}
 .header .header-right .header-company{
     height: 40px;
     width: 150px;

@@ -41,12 +41,12 @@
 .m-btn-page.m-btn-firstpage{
     float: left;
     background-image: url("../../content/icon/btn-firstpage.svg");
-    margin-left: 64px;
+    margin-left: 0px;
     margin-right: 16px;
 }
 .m-btn-page.m-btn-prevpage{
     float: left;
-    margin-right: 41px;
+    margin-right: 32px;
     background-image: url("../../content/icon/btn-prev-page.svg");
     margin-left: 16px;
 }
@@ -55,7 +55,7 @@
     float: right;
   
     background-image: url("../../content/icon/btn-lastpage.svg");
-    margin-right: 64px;
+    margin-right: 0px;
     margin-left: 16px;
 
 } 
@@ -64,7 +64,7 @@
     float: right;
     background-image: url("../../content/icon/btn-next-page.svg");
     margin-right: 16px;
-    margin-left: 41px;
+    margin-left: 32px;
     
 }
 /* end-paging */

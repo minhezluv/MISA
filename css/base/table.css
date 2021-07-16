@@ -11,8 +11,8 @@ table th, td{
 
 
 table.table tbody tr,td{
-    border-bottom:1px solid black;
-    border-top:1px solid black;
+    border-bottom:1px solid #E9EBEE;
+    border-top:1px solid #E9EBEE;
     text-align: left;
     height: 48px;
     padding-left: 16px;

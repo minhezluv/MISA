@@ -14,3 +14,10 @@
 
 }
 
+.filter-bar .filter-left{
+    position: absolute;
+    height: 40px;
+    display: flex;
+    width: 80%;
+}
+

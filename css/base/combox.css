@@ -68,6 +68,26 @@
     padding-bottom: 0px;
     border-width: 0 0 0 1px;
  }
+
+.combobox .combobox-first-data{
+    width: 100%;
+    height: 39px; 
+    border-style: none;
+    border-radius: 4px 4px 4px 4px;
+    min-width: 75px;
+    outline: none;
+    padding-right: 40px;
+    padding-left: 16px;
+    padding-top:  0px;
+    padding-bottom: 0px;
+    border-width: 0 0 0 1px;
+    text-align: center;
+   
+    align-items: center;
+    font-size: 13px;
+    display: flex;
+}
+
 .combobox .combobox-data .combobox-item:hover{
     background-color: #e9ebee;
 }
@@ -87,7 +107,11 @@
 .combobox .combobox-data .combobox-item .combobox-item-text{
     font-family: MISAGoogleSans;
 }
-.combobox-firstvalue{
+.combobox-firstvalue-default{
     font-family: MISAGoogleSans;
-    text-align: center;
+  
+}
+.combobox-firstvalue-bold{
+    font-family: MISAGoogleSans-Bold;
+  
 }

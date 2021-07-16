@@ -9,19 +9,19 @@
     align-items: center;
     background-color: #e9ebee;
 }
- .paging-bar .paging-left{
+.paging-bar .paging-left{
     position: absolute;
     left: 0;
-    
     width: 25%;
     height: 56px;
 }
 .paging-bar .paging-left .paging-left-text{
-    margin-top: 21px;
-    margin-bottom: 21px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     margin-left: 16px;
     align-content: center;
     text-align: left;
+    padding-right: 32px;
 }
 .paging-bar .paging-right{
     position: absolute;
@@ -31,28 +31,28 @@
     height: 56px;
 }
 .paging-bar .paging-right .paging-right-text{
-    margin-top: 21px;
-    margin-bottom: 21px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     margin-right: 16px;
     text-align: right;
-
 }
 .paging-bar .pagination {   
     display: inline-block;
     justify-self: center;
-    position: absolute;
+   
     height: 100%;
-    width: 40%;
+    width: 35%;
+    min-width: 519px;
+    z-index: 1;
 }
-.paging-bar .pagination .pagination-number{
+.paging-bar .pagination-number{
     display: inline-block;
     justify-self: center;
     position: absolute;
     height: 100%;
-    width: 232px;
-    
+    width: 232px; 
     align-content: center;
-    
+    z-index: 999;
 }
 /* .paging-bar .pagination .pagination-left{
     width: 10%;
