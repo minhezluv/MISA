@@ -3,7 +3,7 @@
     width: 100%;
     height: 200px;
 }
-table th, td{
+/* table th, td{
 
     border-bottom:1px solid #BBBBBB ;
     padding-left: 16px;
@@ -13,4 +13,4 @@ table th, td{
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
-}
+} */

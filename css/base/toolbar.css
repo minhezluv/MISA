@@ -5,6 +5,7 @@
     align-items: center;
     height: 40px;
     border: 1px ;
+    display: inline-block;
 }
 
 .filter-bar .filter-right{
@@ -12,3 +13,4 @@
     right: 16px;
 
 }
+

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../css/base/select.css">
     <link rel="stylesheet" href="../css/base/account.css">
     <link rel="stylesheet" href="../css/page/employee.css">
+    <link rel="stylesheet" href="../content/font/fontawesome-5.15.1/css/all.css">
     <title>Document</title>
 </head>
 <body>
@@ -25,10 +26,21 @@
             <div class="logo"></div>
         </div>
         <div class="header-right">
-            <select class="select-company">
-                <option class="select-company-option">Nhà hàng</option> 
-                <option class="select-company-option">Nhà hàng X</option>                
-            </select>
+            <div class="combobox">
+                <input type="text" >
+                <button class=" btn-combobox"><i class="fas fa-solid fa-chevron-down"></i></button>
+                <!-- <div class="combobox-data">
+                    
+                    <div class="combobox-item combobox-item-selected">
+                        <div class="combobox-item-icon icon-combobox-selected "></div>
+                        <div class="combobox-item-text">jkhakds</div>
+                     </div>
+                    <div class="combobox-item">
+                        <div class="combobox-item-icon"></div>
+                        <div class="combobox-item-text">sadasd</div>
+                    </div>
+                </div> -->
+            </div>
             <div class="account">
                 
                 <div class="account-img"></div>
@@ -65,7 +77,7 @@
             <div class="title">Danh sách nhân viên</div>
             <div class="page-feature">
                 <button class="btn misa-btn-default">
-                    <div class="icon-add"></div>
+                    <div class="icon-add icon-16 icon"></div>
                     <div class="btn-text">Thêm nhân viên</div>
                 </button>
             </div>
@@ -87,256 +99,274 @@
                 </button>
             </div>
         </div>
-        <div class="grid grid-employee">
-            <table width="100%" >
+        <div class="grid grid-employee scroll-table">
+            <table class="table" width="100%" >
                 <thead>
                     <th>Mã nhân viên</th>
                     <th>Họ và tên</th>
                     <th>Giới tính</th>
-                    <th>Ngày sinh</th>
+                    <th class="text-align-center">Ngày sinh</th>
                     <th>Số điện thoại</th>
                     <th>Email</th>
                     <th>Chức vụ</th>
                     <th>Phòng ban</th>
-                    <th>Mức lương cơ bản</th>
+                    <th class="text-align-right">Mức lương cơ bản</th>
                     <th>Tình trạng công việc</th>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="selected">
                         <td>NV00001</td>
                         <td>Nguyễn Quang Minh</td>
                         <td>Nam</td>
-                        <td>13/02/2000</td>
+                        <td class="text-align-center">13/02/2000</td>
                         <td>0389759182</td>
                         <td>minhnqhust@gmail.com</td>
                         <td>Nhân viên lập trình</td>
                         <td>Phòng công nghệ</td>
-                        <td>17.132.225</td>
+                        <td class="text-align-right">17.132.225</td>
+                        <td>Đang làm việc</td>
+                    </tr>
+                   
+                    <tr>
+                        <td>NV00001</td>
+                        <td>Nguyễn Quang Minh</td>
+                        <td>Nam</td>
+                        <td class="text-align-center">13/02/2000</td>
+                        <td>0389759182</td>
+                        <td>minhnqhust@gmail.com</td>
+                        <td>Nhân viên lập trình</td>
+                        <td>Phòng công nghệ</td>
+                        <td class="text-align-right">17.132.225</td>
+                        <td>Đang làm việc</td>
+                    </tr>
+                    <tr >
+                        <td>NV00001</td>
+                        <td>Nguyễn Quang Minh</td>
+                        <td>Nam</td>
+                        <td class="text-align-center">13/02/2000</td>
+                        <td>0389759182</td>
+                        <td>minhnqhust@gmail.com</td>
+                        <td>Nhân viên lập trình</td>
+                        <td>Phòng công nghệ</td>
+                        <td class="text-align-right">17.132.225</td>
+                        <td>Đang làm việc</td>
+                    </tr>
+                   
+                    <tr>
+                        <td>NV00001</td>
+                        <td>Nguyễn Quang Minh</td>
+                        <td>Nam</td>
+                        <td class="text-align-center">13/02/2000</td>
+                        <td>0389759182</td>
+                        <td>minhnqhust@gmail.com</td>
+                        <td>Nhân viên lập trình</td>
+                        <td>Phòng công nghệ</td>
+                        <td class="text-align-right">17.132.225</td>
                         <td>Đang làm việc</td>
                     </tr>
                     <tr>
                         <td>NV00001</td>
                         <td>Nguyễn Quang Minh</td>
                         <td>Nam</td>
-                        <td>13/02/2000</td>
+                        <td class="text-align-center">13/02/2000</td>
                         <td>0389759182</td>
                         <td>minhnqhust@gmail.com</td>
                         <td>Nhân viên lập trình</td>
                         <td>Phòng công nghệ</td>
-                        <td>17.132.225</td>
+                        <td class="text-align-right">17.132.225</td>
                         <td>Đang làm việc</td>
-                    </tr> 
+                    </tr>
+                   
                     <tr>
                         <td>NV00001</td>
                         <td>Nguyễn Quang Minh</td>
                         <td>Nam</td>
-                        <td>13/02/2000</td>
+                        <td class="text-align-center">13/02/2000</td>
                         <td>0389759182</td>
                         <td>minhnqhust@gmail.com</td>
                         <td>Nhân viên lập trình</td>
                         <td>Phòng công nghệ</td>
-                        <td>17.132.225</td>
+                        <td class="text-align-right">17.132.225</td>
+                        <td>Đang làm việc</td>
+                    </tr>
+    
+                    <tr >
+                        <td>NV00001</td>
+                        <td>Nguyễn Quang Minh</td>
+                        <td>Nam</td>
+                        <td class="text-align-center">13/02/2000</td>
+                        <td>0389759182</td>
+                        <td>minhnqhust@gmail.com</td>
+                        <td>Nhân viên lập trình</td>
+                        <td>Phòng công nghệ</td>
+                        <td class="text-align-right">17.132.225</td>
+                        <td>Đang làm việc</td>
+                    </tr>
+                   
+                    <tr>
+                        <td>NV00001</td>
+                        <td>Nguyễn Quang Minh</td>
+                        <td>Nam</td>
+                        <td class="text-align-center">13/02/2000</td>
+                        <td>0389759182</td>
+                        <td>minhnqhust@gmail.com</td>
+                        <td>Nhân viên lập trình</td>
+                        <td>Phòng công nghệ</td>
+                        <td class="text-align-right">17.132.225</td>
                         <td>Đang làm việc</td>
                     </tr>
                     <tr>
                         <td>NV00001</td>
                         <td>Nguyễn Quang Minh</td>
                         <td>Nam</td>
-                        <td>13/02/2000</td>
+                        <td class="text-align-center">13/02/2000</td>
                         <td>0389759182</td>
                         <td>minhnqhust@gmail.com</td>
                         <td>Nhân viên lập trình</td>
                         <td>Phòng công nghệ</td>
-                        <td>17.132.225</td>
+                        <td class="text-align-right">17.132.225</td>
+                        <td>Đang làm việc</td>
+                    </tr>
+                   
+                    <tr>
+                        <td>NV00001</td>
+                        <td>Nguyễn Quang Minh</td>
+                        <td>Nam</td>
+                        <td class="text-align-center">13/02/2000</td>
+                        <td>0389759182</td>
+                        <td>minhnqhust@gmail.com</td>
+                        <td>Nhân viên lập trình</td>
+                        <td>Phòng công nghệ</td>
+                        <td class="text-align-right">17.132.225</td>
+                        <td>Đang làm việc</td>
+                    </tr>   <tr >
+                        <td>NV00001</td>
+                        <td>Nguyễn Quang Minh</td>
+                        <td>Nam</td>
+                        <td class="text-align-center">13/02/2000</td>
+                        <td>0389759182</td>
+                        <td>minhnqhust@gmail.com</td>
+                        <td>Nhân viên lập trình</td>
+                        <td>Phòng công nghệ</td>
+                        <td class="text-align-right">17.132.225</td>
+                        <td>Đang làm việc</td>
+                    </tr>
+                   
+                    <tr>
+                        <td>NV00001</td>
+                        <td>Nguyễn Quang Minh</td>
+                        <td>Nam</td>
+                        <td class="text-align-center">13/02/2000</td>
+                        <td>0389759182</td>
+                        <td>minhnqhust@gmail.com</td>
+                        <td>Nhân viên lập trình</td>
+                        <td>Phòng công nghệ</td>
+                        <td class="text-align-right">17.132.225</td>
                         <td>Đang làm việc</td>
                     </tr>
                     <tr>
                         <td>NV00001</td>
                         <td>Nguyễn Quang Minh</td>
                         <td>Nam</td>
-                        <td>13/02/2000</td>
+                        <td class="text-align-center">13/02/2000</td>
                         <td>0389759182</td>
                         <td>minhnqhust@gmail.com</td>
                         <td>Nhân viên lập trình</td>
                         <td>Phòng công nghệ</td>
-                        <td>17.132.225</td>
+                        <td class="text-align-right">17.132.225</td>
+                        <td>Đang làm việc</td>
+                    </tr>
+                   
+                    <tr>
+                        <td>NV00001</td>
+                        <td>Nguyễn Quang Minh</td>
+                        <td>Nam</td>
+                        <td class="text-align-center">13/02/2000</td>
+                        <td>0389759182</td>
+                        <td>minhnqhust@gmail.com</td>
+                        <td>Nhân viên lập trình</td>
+                        <td>Phòng công nghệ</td>
+                        <td class="text-align-right">17.132.225</td>
+                        <td>Đang làm việc</td>
+                    </tr>   <tr >
+                        <td>NV00001</td>
+                        <td>Nguyễn Quang Minh</td>
+                        <td>Nam</td>
+                        <td class="text-align-center">13/02/2000</td>
+                        <td>0389759182</td>
+                        <td>minhnqhust@gmail.com</td>
+                        <td>Nhân viên lập trình</td>
+                        <td>Phòng công nghệ</td>
+                        <td class="text-align-right">17.132.225</td>
+                        <td>Đang làm việc</td>
+                    </tr>
+                   
+                    <tr>
+                        <td>NV00001</td>
+                        <td>Nguyễn Quang Minh</td>
+                        <td>Nam</td>
+                        <td class="text-align-center">13/02/2000</td>
+                        <td>0389759182</td>
+                        <td>minhnqhust@gmail.com</td>
+                        <td>Nhân viên lập trình</td>
+                        <td>Phòng công nghệ</td>
+                        <td class="text-align-right">17.132.225</td>
                         <td>Đang làm việc</td>
                     </tr>
                     <tr>
                         <td>NV00001</td>
                         <td>Nguyễn Quang Minh</td>
                         <td>Nam</td>
-                        <td>13/02/2000</td>
+                        <td class="text-align-center">13/02/2000</td>
                         <td>0389759182</td>
                         <td>minhnqhust@gmail.com</td>
                         <td>Nhân viên lập trình</td>
                         <td>Phòng công nghệ</td>
-                        <td>17.132.225</td>
+                        <td class="text-align-right">17.132.225</td>
                         <td>Đang làm việc</td>
                     </tr>
+                   
                     <tr>
                         <td>NV00001</td>
                         <td>Nguyễn Quang Minh</td>
                         <td>Nam</td>
-                        <td>13/02/2000</td>
+                        <td class="text-align-center">13/02/2000</td>
                         <td>0389759182</td>
                         <td>minhnqhust@gmail.com</td>
                         <td>Nhân viên lập trình</td>
                         <td>Phòng công nghệ</td>
-                        <td>17.132.225</td>
+                        <td class="text-align-right">17.132.225</td>
                         <td>Đang làm việc</td>
                     </tr>
-                    <tr>
-                        <td>NV00001</td>
-                        <td>Nguyễn Quang Minh</td>
-                        <td>Nam</td>
-                        <td>13/02/2000</td>
-                        <td>0389759182</td>
-                        <td>minhnqhust@gmail.com</td>
-                        <td>Nhân viên lập trình</td>
-                        <td>Phòng công nghệ</td>
-                        <td>17.132.225</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV00001</td>
-                        <td>Nguyễn Quang Minh</td>
-                        <td>Nam</td>
-                        <td>13/02/2000</td>
-                        <td>0389759182</td>
-                        <td>minhnqhust@gmail.com</td>
-                        <td>Nhân viên lập trình</td>
-                        <td>Phòng công nghệ</td>
-                        <td>17.132.225</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV00001</td>
-                        <td>Nguyễn Quang Minh</td>
-                        <td>Nam</td>
-                        <td>13/02/2000</td>
-                        <td>0389759182</td>
-                        <td>minhnqhust@gmail.com</td>
-                        <td>Nhân viên lập trình</td>
-                        <td>Phòng công nghệ</td>
-                        <td>17.132.225</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV00001</td>
-                        <td>Nguyễn Quang Minh</td>
-                        <td>Nam</td>
-                        <td>13/02/2000</td>
-                        <td>0389759182</td>
-                        <td>minhnqhust@gmail.com</td>
-                        <td>Nhân viên lập trình</td>
-                        <td>Phòng công nghệ</td>
-                        <td>17.132.225</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV00001</td>
-                        <td>Nguyễn Quang Minh</td>
-                        <td>Nam</td>
-                        <td>13/02/2000</td>
-                        <td>0389759182</td>
-                        <td>minhnqhust@gmail.com</td>
-                        <td>Nhân viên lập trình</td>
-                        <td>Phòng công nghệ</td>
-                        <td>17.132.225</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV00001</td>
-                        <td>Nguyễn Quang Minh</td>
-                        <td>Nam</td>
-                        <td>13/02/2000</td>
-                        <td>0389759182</td>
-                        <td>minhnqhust@gmail.com</td>
-                        <td>Nhân viên lập trình</td>
-                        <td>Phòng công nghệ</td>
-                        <td>17.132.225</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV00001</td>
-                        <td>Nguyễn Quang Minh</td>
-                        <td>Nam</td>
-                        <td>13/02/2000</td>
-                        <td>0389759182</td>
-                        <td>minhnqhust@gmail.com</td>
-                        <td>Nhân viên lập trình</td>
-                        <td>Phòng công nghệ</td>
-                        <td>17.132.225</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV00001</td>
-                        <td>Nguyễn Quang Minh</td>
-                        <td>Nam</td>
-                        <td>13/02/2000</td>
-                        <td>0389759182</td>
-                        <td>minhnqhust@gmail.com</td>
-                        <td>Nhân viên lập trình</td>
-                        <td>Phòng công nghệ</td>
-                        <td>17.132.225</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV00001</td>
-                        <td>Nguyễn Quang Minh</td>
-                        <td>Nam</td>
-                        <td>13/02/2000</td>
-                        <td>0389759182</td>
-                        <td>minhnqhust@gmail.com</td>
-                        <td>Nhân viên lập trình</td>
-                        <td>Phòng công nghệ</td>
-                        <td>17.132.225</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV00001</td>
-                        <td>Nguyễn Quang Minh</td>
-                        <td>Nam</td>
-                        <td>13/02/2000</td>
-                        <td>0389759182</td>
-                        <td>minhnqhust@gmail.com</td>
-                        <td>Nhân viên lập trình</td>
-                        <td>Phòng công nghệ</td>
-                        <td>17.132.225</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV00001</td>
-                        <td>Nguyễn Quang Minh</td>
-                        <td>Nam</td>
-                        <td>13/02/2000</td>
-                        <td>0389759182</td>
-                        <td>minhnqhust@gmail.com</td>
-                        <td>Nhân viên lập trình</td>
-                        <td>Phòng công nghệ</td>
-                        <td>17.132.225</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-
                 </tbody>
             </table>
+    
 
         </div>
         <div class="paging-bar">
-            <div class="paging-text-left">Hiển thị 1-10/1000 Nhân viên</div>
+            <div class="paging-left">
+                <div class="paging-left-text">Hiển thị 1-10/1000 Nhân viên</div>
+            </div>
             <div class="pagination">
-                <a href="#" style="border-radius: 0%; margin-left: -100px ; border:1px" class="m-btn-firstpage" ></a>
-                <a href="#" style="border-radius: 0%; margin-left: -24px;border:1px" class="m-btn-prevpage"></a>
-                <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
- 
-                <a href="#" style="border-radius: 0%; margin-left: 8px;border:1px" class="m-btn-nextpage"></a>
-                <a href="#"style="border-radius: 0%; margin-left: 48px;border:1px"class="m-btn-lastpage"></a>
-              </div>
-            <div class="paging-text-right">10 nhân viên/trang</div>
+               
+                    <div class="m-btn-page m-btn-firstpage "></div>
+                    <div class="m-btn-page m-btn-prevpage "></div>
+                
+                     <div class="pagination-number">
+                          <div class="m-btn-pagenumber active-page" style="">1</div>
+                          <div class="m-btn-pagenumber">2</div>
+                          <div class="m-btn-pagenumber">3</div>
+                          <div class="m-btn-pagenumber" style="">4</div>
+                    </div>
+                    
+                    <div class="m-btn-page m-btn-lastpage"></div>
+                    <div class="m-btn-page m-btn-nextpage"></div>
+                    
+                
+            </div>
+            <div class="paging-right">
+                <div class="paging-right-text">10 nhân viên/trang</div>
+            </div>
         </div>
 
     </div>

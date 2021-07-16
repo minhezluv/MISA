@@ -11,12 +11,7 @@ input{
 input::placeholder{
     font-size: 11px;
 }
-.icon-search{
- background-repeat:no-repeat ;
- background-position: 16px center;
-  
-background-image:url("../../content/icon/search.png") ;
-}
+
 .input-search{
     margin-left: 16px;
     padding-left: 40px;

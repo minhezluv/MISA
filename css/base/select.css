@@ -36,14 +36,14 @@ option:active{
 
 select {
     outline: none;
-    text-shadow: none;
+    
     display: inline-block;
-    text-align: start;
-    appearance: auto;
+    
+ 
     box-sizing: border-box;
     align-items: center;
     border: 1px solid #bbbbbb;
-    cursor: default;
+    
     margin-left: 24px;
     height: 40px;
     width: 180px;

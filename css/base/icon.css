@@ -14,3 +14,97 @@
 .icon .bombobox-selected{
     background-image: url("../../content/icon/refresh.png");
 }
+
+.icon-add{
+    background-image: url("../../content/icon/add.png");
+}
+
+.m-btn-refresh{
+    background-image: url("../../content/icon/refresh.png");
+    background-repeat: no-repeat;
+    background-position: center ;
+    outline: none;
+    height: 40px;
+    width: 40px;
+}
+.account-more-setting{
+    background-image: url("../../content/icon/option.png");
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    margin-left: 16px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+}
+
+/* paging */
+.m-btn-page.m-btn-firstpage{
+    float: left;
+    background-image: url("../../content/icon/btn-firstpage.svg");
+    margin-left: 64px;
+    margin-right: 16px;
+}
+.m-btn-page.m-btn-prevpage{
+    float: left;
+    margin-right: 41px;
+    background-image: url("../../content/icon/btn-prev-page.svg");
+    margin-left: 16px;
+}
+
+.m-btn-lastpage{
+    float: right;
+  
+    background-image: url("../../content/icon/btn-lastpage.svg");
+    margin-right: 64px;
+    margin-left: 16px;
+
+} 
+
+.m-btn-nextpage{
+    float: right;
+    background-image: url("../../content/icon/btn-next-page.svg");
+    margin-right: 16px;
+    margin-left: 41px;
+    
+}
+/* end-paging */
+
+
+/* menu */
+
+.menu .menu-item .menu-icon{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background-size: contain;
+} 
+.menu-icon.menu-icon-dashboard{
+    background-image: url("../../content/icon/dashboard.png"); 
+}
+.menu-icon.menu-icon-report{
+    background-image: url("../../content/icon/report.png");
+}
+.menu-icon.menu-icon-buy{
+    background-image: url("../../content/icon/dashboard.png");
+}
+.menu-icon.menu-icon-dic-employee{
+    background-image: url("../../content/icon/dic-employee.png");
+}
+.menu-icon.menu-icon-setting{
+    background-image: url("../../content/icon/setting.png");
+}
+/* end menu */
+
+/* input search */
+.icon-search{
+    background-repeat:no-repeat ;
+    background-position: 16px center;
+     
+   background-image:url("../../content/icon/search.png") ;
+   }
+
+
+.icon-combobox-selected{
+    background-image:url("../../content/icon/checkmark-16.ico") ;
+    background-repeat:no-repeat ;
+}

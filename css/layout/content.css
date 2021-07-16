@@ -27,7 +27,7 @@
 
 
 /*  Paging */
-.content .paging-bar{
+/* .content .paging-bar{
     display: flex;
     position: absolute;
     width: 100%;
@@ -84,4 +84,4 @@
 
 .pagination a:hover:not(.active) {
     background-color: #e5e5e5;
-  }
+  } */

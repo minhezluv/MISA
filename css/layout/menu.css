@@ -30,24 +30,3 @@ color: black;
     background-color: #019160;
     color: white;
 }
-.menu .menu-item .menu-icon{
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-    background-size: contain;
-} 
-.menu-icon.menu-icon-dashboard{
-    background-image: url("../../content/icon/dashboard.png"); 
-}
-.menu-icon.menu-icon-report{
-    background-image: url("../../content/icon/report.png");
-}
-.menu-icon.menu-icon-buy{
-    background-image: url("../../content/icon/dashboard.png");
-}
-.menu-icon.menu-icon-dic-employee{
-    background-image: url("../../content/icon/dic-employee.png");
-}
-.menu-icon.menu-icon-setting{
-    background-image: url("../../content/icon/setting.png");
-}

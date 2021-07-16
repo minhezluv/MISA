@@ -1,4 +1,9 @@
-
+@import url("../css/base/button.css");
+@import url("../css/base/paging.css");
+@import url("../css/base/icon.css");
+@import url("../css/base/input.css");
+@import url("../css/base/table.css");
+@import url("../css/base/combox.css");
 body{
     font-family: MISAGoogleSans;
     font-size: 13px;
