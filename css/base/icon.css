@@ -3,12 +3,21 @@
     height:16px;
 }
 .icon-24{
+    height: 24px;
     width: 24px;
-    width: 24px;
+}
+.icon-160{
+    height: 160px;
+    width: 160px;
+    
+}
+.circle-icon{
+    border-radius: 50%;
+    border: 1px solid #bbbbbb;
 }
 .icon{
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: contain;
     background-position:center ;
 }
 .icon .bombobox-selected{
@@ -38,29 +47,28 @@
 }
 
 /* paging */
-.m-btn-page.m-btn-firstpage{
+.m-firstpage-icon{
     float: left;
     background-image: url("../../content/icon/btn-firstpage.svg");
     margin-left: 0px;
     margin-right: 16px;
 }
-.m-btn-page.m-btn-prevpage{
+.m-prevpage-icon{
     float: left;
     margin-right: 32px;
     background-image: url("../../content/icon/btn-prev-page.svg");
     margin-left: 16px;
 }
 
-.m-btn-lastpage{
+.m-lastpage-icon{
     float: right;
-  
     background-image: url("../../content/icon/btn-lastpage.svg");
     margin-right: 0px;
     margin-left: 16px;
 
 } 
 
-.m-btn-nextpage{
+.m-nextpage-icon{
     float: right;
     background-image: url("../../content/icon/btn-next-page.svg");
     margin-right: 16px;
@@ -107,4 +115,23 @@
 .icon-combobox-selected{
     background-image:url("../../content/icon/checkmark-16.ico") ;
     background-repeat:no-repeat ;
+}
+
+
+/* Dialog */
+
+.dialog-image-employee{
+    background-image: url("../../content/img/default-avatar.jpg");
+}
+
+.input-image-icon{
+    background-image: url("../../content/img/default-avatar.jpg");
+    margin-left:9px  ;
+    margin-right: 9px;
+    margin-top: 16px;
+}
+
+.icon-save{
+    padding-left: 16px;
+    background-image: url("../../content/icon/add.png");
 }

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/layout/menu.css">
     <link rel="stylesheet" href="../css/base/button.css">
     <link rel="stylesheet" href="../css/base/text-box.css">
-    <link rel="stylesheet" href="../css/base/toolbar.css">
+    <link rel="stylesheet" href="../css/base/filter-bar.css">
     <link rel="stylesheet" href="../css/base/input.css">
     <link rel="stylesheet" href="../css/base/grid.css">
     <link rel="stylesheet" href="../css/base/select.css">
@@ -27,8 +27,8 @@
         </div>
         <div class="header-right">
             <div class="header-company-list combobox ">
-                <div class="combobox-first-data combobox-firstvalue-bold">Nha hang</div>
-                <button class="btn-combobox" style="border-color: white;"><i class="fas fa-solid fa-chevron-down"></i></button>
+                <div class="combobox-first-data combobox-firstvalue-bold">Nhà hàng Biển Đông</div>
+                <button class="btn-combobox height-btn-40" style="border-color: white;"><i class="fas fa-solid fa-chevron-down"></i></button>
                 <!-- <div class="combobox-data">
                     
                     <div class="combobox-item combobox-item-selected">
@@ -86,9 +86,10 @@
         <div class="filter-bar">
             <div class="filter-left">
                 <input class="icon-search input-search" style=" width: 245px;" type="text" placeholder="Tìm kiếm theo Mã, Tên hoặc Số điện thoại">
-                <div class=" combobox ">
-                <div class="combobox-first-data combobox-firstvalue-default">Nha hang</div>
-                <button class="btn-combobox" style=""><i class="fas fa-solid fa-chevron-down"></i></button>
+                <div class=" combobox " style="margin-left: 24px;">
+                <div class="combobox-first-data combobox-firstvalue-default" >Tất cả phòng ban</div>
+               
+                <button class="btn-combobox height-btn-40" style=""><i class="fas fa-solid fa-chevron-down"></i></button>
                 <!-- <div class="combobox-data">
                     
                     <div class="combobox-item combobox-item-selected">
@@ -101,9 +102,9 @@
                     </div>
                 </div> -->
             </div>
-            <div class=" combobox ">
-                <div class="combobox-first-data combobox-firstvalue-default">Nha hang</div>
-                <button class="btn-combobox" style=""><i class="fas fa-solid fa-chevron-down"></i></button>
+            <div class=" combobox" style="margin-left: 24px;">
+                <div class="combobox-first-data combobox-firstvalue-default">Tất cả vị trí</div>
+                <button class="btn-combobox height-btn-40" style=""><i class="fas fa-solid fa-chevron-down"></i></button>
                 <!-- <div class="combobox-data">
                     
                     <div class="combobox-item combobox-item-selected">
@@ -373,18 +374,18 @@
             </div>
             <div class="pagination">
                
-                    <div class="m-btn-page m-btn-firstpage "></div>
-                    <div class="m-btn-page m-btn-prevpage "></div>
+                    <button class="m-btn-page m-firstpage-icon "></button>
+                    <button class="m-btn-page m-prevpage-icon "></button>
                 
                      <div class="pagination-number">
-                          <div class="m-btn-pagenumber active-page" style="">1</div>
-                          <div class="m-btn-pagenumber">2</div>
-                          <div class="m-btn-pagenumber">3</div>
-                          <div class="m-btn-pagenumber" style="">4</div>
+                          <button class="m-btn-pagenumber active-page" style="">1</button>
+                          <button class="m-btn-pagenumber">2</button>
+                          <button class="m-btn-pagenumber">3</button>
+                          <button class="m-btn-pagenumber" style="">4</button>
                     </div>
                     
-                    <div class="m-btn-page m-btn-lastpage"></div>
-                    <div class="m-btn-page m-btn-nextpage"></div>
+                    <button class="m-btn-page m-lastpage-icon"></button>
+                    <button class="m-btn-page m-nextpage-icon"></button>
                     
                 
             </div>
@@ -392,6 +393,10 @@
                 <div class="paging-right-text">10 nhân viên/trang</div>
             </div>
         </div>
+<br><br><br><br><br><br><br>
+
+
+
 
     </div>
 </body>

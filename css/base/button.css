@@ -71,7 +71,9 @@
     border-radius: 4px;
     margin-top: 8px;
     margin-bottom: 8px;
-   
+    background-color: #e9ebee;
+    border-color:#e9ebee ;
+   border: none;
 }
 .m-btn-page:hover{
     background-color: white;
@@ -94,13 +96,34 @@
     margin-right: 8px;
     cursor: pointer;
     display: grid;
-
+    background-color: #e9ebee;
 }
 .m-btn-pagenumber:hover{
     background-color: white;
 }
 .active-page{
     background-color: #019160;
+}
+
+.m-btn-save{
+    height: 40px;
+    width: 90px;
+    right: 16px;
+    position: absolute;
+    text-align: center;
+}
+
+.m-btn-destroy{
+    height: 40px;
+    width: 90px;
+   margin-right: 16px;
+    right: 100px;
+    position: absolute;
+    text-align: center;
+  
+}
+.btn-destroy-text{
+    margin-left: 17px;
 }
 
 

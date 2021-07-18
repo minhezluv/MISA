@@ -4,6 +4,7 @@
 @import url("../css/base/input.css");
 @import url("../css/base/table.css");
 @import url("../css/base/combox.css");
+@import url("../css/base/dialog.css");
 body{
     font-family: MISAGoogleSans;
     font-size: 13px;

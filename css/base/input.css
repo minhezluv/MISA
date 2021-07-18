@@ -26,3 +26,26 @@ input::placeholder{
     border: 1px solid #019160;
     
 }
+/* input.input-image{
+    width: 40px;
+    height: 40px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    border-radius: 50%;
+    outline: none;
+    border: 1px solid #BBBBBB;
+    background-color: cadetblue;
+} */
+
+input[type="file" ] {
+display: none;
+}
+
+
+.input-dialog-employee{
+    width: 166px;
+    border: 1px solid #bbbbbb;
+    height: 12px;
+}

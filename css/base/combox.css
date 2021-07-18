@@ -2,9 +2,9 @@
     outline: none;
     border: 1px solid #bbbbbb;
     cursor: pointer;
-    margin-left: 24px;
+    
     height: 40px;
-    width: 180px;
+    width: 200px;
     border-radius: 4px;
     display: flex;
     position: relative;
@@ -12,13 +12,10 @@
 .combobox:focus{
     border-color: #019160;
 }
-
-
-.combobox .btn-combobox{
+.combobox button.btn-combobox{
     position: absolute;
     right: -1px;
-    width: 41px;
-    height: 42px;
+
     border-width: 0 0 0 1px;
     border:1px solid ;
     /* background-image: url("../../content/icon/setting.png"); */
@@ -31,6 +28,10 @@
     background-color: white;
     border-left: white;
 
+}
+.height-btn-40{
+    width: 41px;
+    height: 42px;
 }
 
 .combobox .combobox-data{
@@ -114,4 +115,14 @@
 .combobox-firstvalue-bold{
     font-family: MISAGoogleSans-Bold;
   
+}
+
+
+/* custom */
+.height-combobox-36{
+    height: 32px;
+}
+.height-btn-36{
+    height: 34px;
+    width: 33px;
 }
