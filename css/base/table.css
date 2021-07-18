@@ -1,5 +1,6 @@
 table.table{
     border-collapse: collapse;
+   
 }
 
 table.table thead tr{
@@ -43,7 +44,7 @@ table.table tbody tr.selected{
 .grid-employee{
     width: 100%;
     overflow-y: auto;
-    height: calc(100vh - 202px);
+    height: calc(100vh - 206px);
 }
 .scroll-table thead th{
     position: sticky;

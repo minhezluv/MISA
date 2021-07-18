@@ -1,7 +1,7 @@
 .filter-bar{
     position: relative;
     width: 100%;
-    display: flex;
+   
     align-items: center;
     height: 40px;
     border: 1px ;
