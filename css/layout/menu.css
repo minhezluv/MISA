@@ -30,3 +30,6 @@ color: black;
     background-color: #019160;
     color: white;
 }
+.menu a{
+    text-decoration: none;
+}

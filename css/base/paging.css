@@ -43,9 +43,7 @@
     display: inline-block;
     justify-self: center;
     height: 100%;
-    width: 35%;
-    min-width: 520px;
-    max-width: 520px;
+    width: 507px;
    
 }
 .paging-bar .pagination-number{
@@ -53,7 +51,7 @@
     justify-self: center;
     position: absolute;
     height: 100%;
-    width: 232px; 
+    width: 224px; 
     align-content: center;
     
 }

@@ -45,6 +45,7 @@
     border-radius:4px ;
     border:19x solid #ccc;
     box-shadow: 0px 1px 8px 0px #DFDFDF;
+    display: none;
 }
 .combobox .combobox-data .combobox-item{
     display: flex;
@@ -126,3 +127,9 @@
     height: 34px;
     width: 33px;
 }
+
+.combobox i.fa-chevron-up{
+    display: none;
+}
+
+
