@@ -58,6 +58,7 @@ display: none;
 
 
 input[type="date"]{
-
+    padding-right: 5px;
+    width: 177px;
 }
 

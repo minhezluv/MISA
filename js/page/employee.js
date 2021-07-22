@@ -1,152 +1,88 @@
 $(document).ready(function(){
-   new EmployeeJS();
- 
-})
 
-class EmployeeJS {
+    loadData();
+    CreateEmployeeCode();
+    $(".btn-add").click(function(){
+        $(".dialog-employee").show();
+    })
 
-    constructor(){
-        this.loadData();
-     //   this.super();
-    }
+    //Kiểm tra dữ liệu
 
-   // lấy dữ liệu
-    loadData(){
-        $.ajax({
-            url:"http://cukcuk.manhnv.net/v1/Employees/NewEmployeeCode",
-            method: "GET",
-        }).done(function(res){
-            $("#EmployeeCode").val(res);
-            //console.log("#EmployeeCode").val();
-            //console.log(res);
+    $("input[required]").blur(function(){
+        //kiểm tra thông tin có nhập hay không
+        var value=$(this).val();
+        if(value==""){
+            $(this).css("border","1px solid red");
+            $(this).attr("title","Bắt buộc nhập");
+        }else{
+            $(this).css("border","1px solid #019160");
+            $(this).removeAttr("title");
+        }
+    })
 
-        })
+    //thoat form
+    $(".m-btn-destroy").click(function(){
+        $(".dialog-employee").hide();
+    })
 
-        $.ajax({
-            url:"http://cukcuk.manhnv.net/v1/Employees",
-            method: "GET",
-    
-        }).done(function(res){
-           //Xử lí dữ liệu
-           let employees = res;
-           console.log(employees);
 
-           //Duyệt mảng dữ liệu
-           employees.forEach(employee => {
-               var dateOfBirth=employee.DateOfBirth;
-               dateOfBirth=formatDate(dateOfBirth);
-               var Salary=formatMoney(employee.Salary);
-               var Gender=formatGender(employee.Gender);
-               var tr=$(` <tr>
-               <td>`+employee.EmployeeCode+`</td>
-               <td>`+employee.FullName+`</td>
-               <td>`+Gender+`</td>
-               <td class="text-align-center">`+dateOfBirth+`</td>
-               <td>`+employee.PhoneNumber+`</td>
-               <td>`+employee.Email+`</td>
-               <td>`+employee.PositionName+`</td>
-               <td>`+employee.DepartmentName+`</td>
-               <td class="text-align-right">`+Salary+`</td>
-               <td>`+employee.WorkStatus+`</td>
-           </tr>`);
-           $('table tbody').append(tr);
-           });
-          
-        }).fail(function(res){
-    
-        })
+    $(".m-btn-save").click(function () { 
+        var employee={
+            Address: null,
+            CreatedBy: null,
+            CreatedDate: "2021-07-22T01:21:26",
+            DateOfBirth: "1970-01-01T00:00:00",
+            DepartmentCode: "PB99",
+            DepartmentId:null,
+            DepartmentName: null,
+            EducationalBackground: null,
+            EducationalBackgroundName: null,
+            Email: "lehuutiendung@gmail.com",
+            EmployeeCode: "NV0473",
+            EmployeeId: "22735857-ea8b-11eb-94eb-42010a8c0002",
+            FirstName: null,
+            FullName: "Vũ Minh Đức Sao thế nhỉ",
+            Gender: 1,
+            GenderName: "Nam",
+            IdentityDate: "1970-01-01T00:00:00",
+            IdentityNumber: "0115031641120",
+            IdentityPlace: "",
+            JoinDate: null,
+            LastName: null,
+            MartialStatus: null,
+            MartialStatusName: null,
+            ModifiedBy: null,
+            ModifiedDate: "2021-07-22T01:21:42",
+            PersonalTaxCode: "",
+            PhoneNumber: "0354994121",
+            PositionCode: "P08",
+            PositionId: "30d41e52-5e66-72bc-6c1c-b47866e0b131",
+            PositionName: "Giám đốc",
+            QualificationId: null,
+            QualificationName: null,
+            Salary: 0,
+            WorkStatus: 0,
+        };
+
+
+        //Thu thập dữ liệu
+       
+        employee.FullName=$("#FullName").val();
+        employee.EmployeeCode=$("#EmployeeCode").val();
+       // employee.DepartmentName=$("#DepartmentName").val();
+        employee.IdentityNumber=$("#IdentityNumber").val();
+        employee.Email=$("#Email").val();
+        employee.PhoneNumber=$("#PhoneNumber").val();
+       // console.log(employee.FullName);
+        //Gọi đến API
+        employee.DateOfBirth=$("#DateOfBirth").val();
+      //  employee.DepartmentName=$("#DepartmentName").val();
+      //  console.log(employee.DepartmentName);
+        addEmployee(employee);
         
+    });
 
-        //khởi tạo chức năng
-
-        //mở form
-        $(".btn-add").click(function(){
-            $(".dialog-employee").show();
-        })
-
-        //Kiểm tra dữ liệu
-
-        $("input[required]").blur(function(){
-            //kiểm tra thông tin có nhập hay không
-            var value=$(this).val();
-            if(value==""){
-                $(this).css("border","1px solid red");
-                $(this).attr("title","Bắt buộc nhập");
-            }else{
-                $(this).css("border","1px solid #019160");
-                $(this).removeAttr("title");
-            }
-        })
-
-        //thoat form
-        $(".m-btn-destroy").click(function(){
-            $(".dialog-employee").hide();
-        })
-
-
-        $(".m-btn-save").click(function () { 
-            let employee={
-                Address: "Ha Noi",
-                CreatedBy: null,
-                CreatedDate: "2021-07-21T12:50:11",
-                DateOfBirth: "2021-07-01T00:00:00",
-                DepartmentCode: "PB99",
-                DepartmentId: "142cb08f-7c31-21fa-8e90-67245e8b283e",
-                DepartmentName: "Phòng Marketting",
-                EducationalBackground: 0,
-                EducationalBackgroundName: "Tiểu học",
-                Email: " test@gmail.com",
-                EmployeeCode: "NV987654322",
-                EmployeeId: "null",
-                FirstName: "Wick",
-                FullName: " Nguyen Nhat Anh",
-                Gender: 1,
-                GenderName: "Nam",
-                IdentityDate: "2021-07-01T00:00:00",
-                IdentityNumber: " 123456789",
-                IdentityPlace: " Ha Noi",
-                JoinDate: "2021-07-22T00:00:00",
-                LastName: "John",
-                MartialStatus: 0,
-                MartialStatusName: "Độc thân",
-                ModifiedBy: null,
-                ModifiedDate: null,
-                PersonalTaxCode: " 123456789",
-                PhoneNumber: " 123456789",
-                PositionCode: "P08",
-                PositionId: "30d41e52-5e66-72bc-6c1c-b47866e0b131",
-                PositionName: "Giám đốc",
-                QualificationId: null,
-                QualificationName: null,
-                Salary: 123456789,
-                WorkStatus: 0
-            };
-
-
-            //Thu thập dữ liệu
-
-            employee.FullName=$("#FullName").val();
-            employee.EmployeeCode=$("#EmployeeCode").val();
-            console.log(employee.FullName);
-            //Gọi đến API
-            $.ajax({
-                url:"http://cukcuk.manhnv.net/v1/Employees",
-                method: "POST",
-                data:JSON.stringify(employee),
-                dataType:"json",
-                contentType:"application/json"
-            }).done(res=>{
-                alert('thêm mới thành công');
-                loadData();
-            }).fail(res=>{
-                alert('thêm mới thất bại');
-            })
-            
-        });
-    }
-
-    
-}
+})
 
 
 // Format lai ngay thang nam
@@ -192,10 +128,82 @@ function formatGender(value){
 }
 
 /**
- * Hàm thêm mới
+ * Hàm thêm mới nhân viên
  *  CreatedBy: nqminh (21/7/2021)
  */
 
-// function btnAddClick(){
+function addEmployee(employee){
+    
+    $.ajax({
+        url:"http://cukcuk.manhnv.net/v1/Employees",
+        method: "POST",
+        data:JSON.stringify(employee),
+        dataType:"json",
+        contentType:"application/json"
+    }).done(res=>{
+        alert('thêm mới thành công');
+        loadData();
+    }).fail(res=>{
+        alert('thêm mới thất bại');
+    })
+}
 
-// }
+/**
+ * Hàm sinh mã nhên viên
+ * CreatedBy: nqminh (22/7/2021)
+ */
+
+function CreateEmployeeCode(){
+    $.ajax({
+        url:"http://cukcuk.manhnv.net/v1/Employees/NewEmployeeCode",
+        method: "GET",
+    }).done(function(res){
+        $("#EmployeeCode").val(res);
+        //console.log("#EmployeeCode").val();
+        //console.log(res);
+
+    })
+}
+
+/**
+ * Load dữ liệu từ hệ thống
+ * CreatedBy: nqminh (22/7/2021)
+ * 
+ */
+function loadData(){
+
+
+    $.ajax({
+        url:"http://cukcuk.manhnv.net/v1/Employees",
+        method: "GET",
+
+    }).done(function(res){
+       //Xử lí dữ liệu
+       let employees = res;
+       console.log(employees);
+
+       //Duyệt mảng dữ liệu
+       employees.forEach(employee => {
+           var dateOfBirth=employee.DateOfBirth;
+           dateOfBirth=formatDate(dateOfBirth);
+           var Salary=formatMoney(employee.Salary);
+           var Gender=formatGender(employee.Gender);
+           var tr=$(` <tr>
+           <td>`+employee.EmployeeCode+`</td>
+           <td>`+employee.FullName+`</td>
+           <td>`+Gender+`</td>
+           <td class="text-align-center">`+dateOfBirth+`</td>
+           <td>`+employee.PhoneNumber+`</td>
+           <td>`+employee.Email+`</td>
+           <td>`+employee.PositionName+`</td>
+           <td>`+employee.DepartmentName+`</td>
+           <td class="text-align-right">`+Salary+`</td>
+           <td>`+employee.WorkStatus+`</td>
+       </tr>`);
+       $('table tbody').append(tr);
+       });
+      
+    }).fail(function(res){
+
+    });
+}
