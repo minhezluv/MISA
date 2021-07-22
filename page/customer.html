@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/layout/content.css">
+    <link rel="stylesheet" href="../css/layout/header.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/layout/menu.css">
+    <link rel="stylesheet" href="../css/base/button.css">
+    <link rel="stylesheet" href="../css/base/text-box.css">
+    <link rel="stylesheet" href="../css/base/filter-bar.css">
+    <link rel="stylesheet" href="../css/base/select.css">
+    <link rel="stylesheet" href="../css/base/account.css">
+    <link rel="stylesheet" href="../css/page/employee.css">
+    <link rel="stylesheet" href="../content/font/fontawesome-5.15.1/css/all.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <div class="toggle"></div>
+            <div class="logo"></div>
+        </div>
+        <div class="header-right">
+            <div class="header-company-list combobox ">
+                <div class="combobox-first-data combobox-firstvalue-bold">Nhà hàng Biển Đông</div>
+                <button class="btn-combobox height-btn-40" style="border-color: white;"><i class="fas fa-solid fa-chevron-down"></i></button>
+                <!-- <div class="combobox-data">
+                    
+                    <div class="combobox-item combobox-item-selected">
+                        <div class="combobox-item-icon icon-combobox-selected "></div>
+                        <div class="combobox-item-text">jkhakds</div>
+                     </div>
+                    <div class="combobox-item">
+                        <div class="combobox-item-icon"></div>
+                        <div class="combobox-item-text">sadasd</div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="account">
+                
+                <div class="account-img"></div>
+                <div class="account-name">Nguyễn Quang Minh</div>
+                <div class=" account-more-setting"></div>
+            </div>
+        </div>
+    </div>
+         
+    <div class="menu">
+        <a class="menu-item" href="">
+            <div class="menu-icon menu-icon-dashboard"></div>
+            <div class="menu-item-text">Tổng quan</div>
+        </a>
+        <a class="menu-item" href="" >
+            <div class="menu-icon menu-icon-report"></div>
+            <div class="menu-item-text">Báo cáo</div>
+        </a>
+        <a class="menu-item" href="">
+            <div class="menu-icon menu-icon-buy"></div>
+            <div class="menu-item-text">Mua hàng</div>
+        </a>
+        <a class="menu-item" href="employee.html">
+            <div class="menu-icon menu-icon-dic-employee"></div>
+            <div class="menu-item-text">Danh mục nhân viên</div>
+        </a>
+        <a class="menu-item" href="">
+            <div class="menu-icon menu-icon-setting"></div>
+            <div class="menu-item-text">Thiết lập hệ thống</div>
+        </a>
+    </div>
+    <div class="content">
+        <div class="page-title">
+            <div class="title">Danh sách khách hàng</div>
+            <div class="page-feature">
+                <button class="btn misa-btn-default">
+                    <div class="icon-add icon-16 icon"></div>
+                    <div class="btn-text">Thêm khách hàng</div>
+                </button>
+            </div>
+        </div>
+        <div class="filter-bar">
+            <div class="filter-left">
+                <input class="icon-search input-search" style=" width: 245px;" type="text" placeholder="Tìm kiếm theo Mã, Tên hoặc Số điện thoại">
+                <div class=" combobox " style="margin-left: 24px;">
+                <div class="combobox-first-data combobox-firstvalue-default" >Tất cả phòng ban</div>
+               
+                <button class="btn-combobox height-btn-40" style=""><i class="fas fa-solid fa-chevron-down"></i></button>
+                <!-- <div class="combobox-data">
+                    
+                    <div class="combobox-item combobox-item-selected">
+                        <div class="combobox-item-icon icon-combobox-selected "></div>
+                        <div class="combobox-item-text">jkhakds</div>
+                     </div>
+                    <div class="combobox-item">
+                        <div class="combobox-item-icon"></div>
+                        <div class="combobox-item-text">sadasd</div>
+                    </div>
+                </div> -->
+            </div>
+            <div class=" combobox" style="margin-left: 24px;">
+                <div class="combobox-first-data combobox-firstvalue-default">Tất cả vị trí</div>
+                <button class="btn-combobox height-btn-40" style=""><i class="fas fa-solid fa-chevron-down"></i></button>
+                <!-- <div class="combobox-data">
+                    
+                    <div class="combobox-item combobox-item-selected">
+                        <div class="combobox-item-icon icon-combobox-selected "></div>
+                        <div class="combobox-item-text">jkhakds</div>
+                     </div>
+                    <div class="combobox-item">
+                        <div class="combobox-item-icon"></div>
+                        <div class="combobox-item-text">sadasd</div>
+                    </div>
+                </div> -->
+            </div>
+            </div>
+            <div class="filter-right">
+                <button class="m-second-button m-btn-refresh">
+
+                </button>
+            </div>
+        </div>
+        <div class="grid grid-employee scroll-table">
+            <table class="table" width="100%" >
+                <thead>
+                    <th>Mã nhân viên</th>
+                    <th>Họ và tên</th>
+                    <th>Giới tính</th>
+                    <th class="text-align-center">Ngày sinh</th>
+                    <th>Số điện thoại</th>
+                    <th>Email</th>
+                    
+                </thead>                  
+                </tbody>
+            </table>
+        </div>
+        <div class="paging-bar">
+            <div class="paging-left">
+                <div class="paging-left-text">Hiển thị 1-10/1000 Nhân viên</div>
+            </div>
+            <div class="pagination">        
+                    <button class="m-btn-page m-firstpage-icon "></button>
+                    <button class="m-btn-page m-prevpage-icon "></button>               
+                     <div class="pagination-number">
+                          <button class="m-btn-pagenumber active-page" style="">1</button>
+                          <button class="m-btn-pagenumber">2</button>
+                          <button class="m-btn-pagenumber">3</button>
+                          <button class="m-btn-pagenumber" style="">4</button>
+                    </div>                 
+                    <button class="m-btn-page m-lastpage-icon"></button>
+                    <button class="m-btn-page m-nextpage-icon"></button>                    
+            </div>
+            <div class="paging-right">
+                <div class="paging-right-text">10 nhân viên/trang</div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../lib/jquery-3.6.0.min.js"></script>
+    <script src="../js/base/common.js"></script>
+    <script src="../js/page/employee.js"></script>
+</body>
+</html>

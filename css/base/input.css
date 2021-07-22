@@ -11,7 +11,9 @@ input{
 input::placeholder{
     font-size: 11px;
 }
-
+input:focus{
+    border-color: #019160;
+}
 .input-search{
     margin-left: 16px;
     padding-left: 40px;
@@ -39,6 +41,10 @@ input::placeholder{
     background-color: cadetblue;
 } */
 
+
+
+/* employee manager  */
+
 input[type="file" ] {
 display: none;
 }
@@ -49,3 +55,9 @@ display: none;
     border: 1px solid #bbbbbb;
     height: 12px;
 }
+
+
+input[type="date"]{
+
+}
+

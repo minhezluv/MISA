@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/main.css">
+ 
     <link rel="stylesheet" href="../css/base/combox.css">
     <link rel="stylesheet" href="../css/base/paging.css">
-    <link rel="stylesheet" href="../content/font/fontawesome-5.15.1/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- <link rel="stylesheet" href="../content/font/fontawesome-5.15.1/css/all.css"> -->
     <title>Document</title>
 </head>
 <body>
@@ -193,40 +195,21 @@
                 <div class="content-between-element">
                     <div class="element">
                         <div class="between-element-title">Ngày sinh</div>
-                        <div class=" combobox height-combobox-36">
-                          
-                           
-                            <button class="btn-combobox height-btn-36" style=""><i class="far fa-calendar" style="color: black;"></i></button>
-                            <!-- <div class="combobox-data">
-                                
-                                <div class="combobox-item combobox-item-selected">
-                                    <div class="combobox-item-icon icon-combobox-selected "></div>
-                                    <div class="combobox-item-text">jkhakds</div>
-                                 </div>
-                                <div class="combobox-item">
-                                    <div class="combobox-item-icon"></div>
-                                    <div class="combobox-item-text">sadasd</div>
-                                </div>
-                            </div> -->
-                        </div>
+                        <input type="date" id="birthday" name="birthday" class="input-dialog-employee">
                     </div>                 
                     <div class="element">
                         <div class="between-element-title">Giới tính</div>
-                        <div class=" combobox  height-combobox-36" style="">
-                           
-                           
-                            <button class="btn-combobox height-btn-36" style=""><i class="fas fa-solid fa-chevron-down"></i></button>
-                            <!-- <div class="combobox-data">
-                                
-                                <div class="combobox-item combobox-item-selected">
-                                    <div class="combobox-item-icon icon-combobox-selected "></div>
-                                    <div class="combobox-item-text">jkhakds</div>
-                                 </div>
-                                <div class="combobox-item">
-                                    <div class="combobox-item-icon"></div>
-                                    <div class="combobox-item-text">sadasd</div>
+                        <div class="wrapper wrapper-size-34">
+                            <label class="dropdown" for="dropdown-input">
+                                <div class="dropdown-header-wrapper"> 
+                                    <span class="dropdown-value dropdown-value-gender">
+                                    </span>
+                                    <i class="fas fa-chevron-down icon-down show"></i>
+                                    <i class="fas fa-chevron-up icon-up"></i>
                                 </div>
-                            </div> -->
+                                <ul class="dropdown-list dropdown-list-gender">
+                                </ul>
+                            </label> 
                         </div>
                     </div>
                  
@@ -238,22 +221,7 @@
                     </div>                 
                     <div class="element">
                         <div class="between-element-title">Ngày cấp</div>
-                        <div class=" combobox height-combobox-36">
-                            
-                           
-                            <button class="btn-combobox height-btn-36" style=""><i class="far fa-calendar" style="color: black;"></i></button>
-                            <!-- <div class="combobox-data">
-                                
-                                <div class="combobox-item combobox-item-selected">
-                                    <div class="combobox-item-icon icon-combobox-selected "></div>
-                                    <div class="combobox-item-text">jkhakds</div>
-                                 </div>
-                                <div class="combobox-item">
-                                    <div class="combobox-item-icon"></div>
-                                    <div class="combobox-item-text">sadasd</div>
-                                </div>
-                            </div> -->
-                        </div>
+                        <input type="date" id="cmt-date" name="cmt-date" class="input-dialog-employee">
                     </div>
                   
                 </div>
@@ -287,40 +255,32 @@
                     <div class="content-between-element">
                         <div class="element">
                             <div class="between-element-title">Vị trí</div>
-                            <div class=" combobox  height-combobox-36" style="">
-                           
-                           
-                                <button class="btn-combobox height-btn-36" style=""><i class="fas fa-solid fa-chevron-down"></i></button>
-                                <!-- <div class="combobox-data">
-                                    
-                                    <div class="combobox-item combobox-item-selected">
-                                        <div class="combobox-item-icon icon-combobox-selected "></div>
-                                        <div class="combobox-item-text">jkhakds</div>
-                                     </div>
-                                    <div class="combobox-item">
-                                        <div class="combobox-item-icon"></div>
-                                        <div class="combobox-item-text">sadasd</div>
+                            <div class="wrapper wrapper-size-34">
+                                <label class="dropdown" for="dropdown-input">
+                                    <div class="dropdown-header-wrapper"> 
+                                        <span class="dropdown-value dropdown-value-PostitionName">
+                                        </span>
+                                        <i class="fas fa-chevron-down icon-down show"></i>
+                                        <i class="fas fa-chevron-up icon-up"></i>
                                     </div>
-                                </div> -->
+                                    <ul class="dropdown-list dropdown-list-PostitionName">
+                                    </ul>
+                                </label> 
                             </div>
                         </div>                 
                         <div class="element">
                             <div class="between-element-title">Phòng ban</div>
-                            <div class=" combobox  height-combobox-36" style="">
-                           
-                           
-                                <button class="btn-combobox height-btn-36" style=""><i class="fas fa-solid fa-chevron-down"></i></button>
-                                <!-- <div class="combobox-data">
-                                    
-                                    <div class="combobox-item combobox-item-selected">
-                                        <div class="combobox-item-icon icon-combobox-selected "></div>
-                                        <div class="combobox-item-text">jkhakds</div>
-                                     </div>
-                                    <div class="combobox-item">
-                                        <div class="combobox-item-icon"></div>
-                                        <div class="combobox-item-text">sadasd</div>
+                            <div class="wrapper wrapper-size-34">
+                                <label class="dropdown" for="dropdown-input">
+                                    <div class="dropdown-header-wrapper"> 
+                                        <span class="dropdown-value dropdown-value-DepartmentName">
+                                        </span>
+                                        <i class="fas fa-chevron-down icon-down show"></i>
+                                        <i class="fas fa-chevron-up icon-up"></i>
                                     </div>
-                                </div> -->
+                                    <ul class="dropdown-list dropdown-list-DeparmentName">
+                                    </ul>
+                                </label> 
                             </div>
                         </div>
                        
@@ -343,40 +303,21 @@
                     <div class="content-between-element">
                         <div class="element">
                             <div class="between-element-title">Ngày gia nhập công ty</div>
-                            <div class=" combobox height-combobox-36">
-                            
-                           
-                                <button class="btn-combobox height-btn-36" style=""><i class="far fa-calendar" style="color: black;"></i></button>
-                                <!-- <div class="combobox-data">
-                                    
-                                    <div class="combobox-item combobox-item-selected">
-                                        <div class="combobox-item-icon icon-combobox-selected "></div>
-                                        <div class="combobox-item-text">jkhakds</div>
-                                     </div>
-                                    <div class="combobox-item">
-                                        <div class="combobox-item-icon"></div>
-                                        <div class="combobox-item-text">sadasd</div>
-                                    </div>
-                                </div> -->
-                            </div>
+                            <input type="date" id="date-join-company" name="date-join-company" class="input-dialog-employee">
                         </div>                 
                         <div class="element">
                             <div class="between-element-title">Tình trạng công việc</div>
-                            <div class=" combobox  height-combobox-36" style="">
-                           
-                           
-                                <button class="btn-combobox height-btn-36" style=""><i class="fas fa-solid fa-chevron-down"></i></button>
-                                <!-- <div class="combobox-data">
-                                    
-                                    <div class="combobox-item combobox-item-selected">
-                                        <div class="combobox-item-icon icon-combobox-selected "></div>
-                                        <div class="combobox-item-text">jkhakds</div>
-                                     </div>
-                                    <div class="combobox-item">
-                                        <div class="combobox-item-icon"></div>
-                                        <div class="combobox-item-text">sadasd</div>
+                            <div class="wrapper wrapper-size-34">
+                                <label class="dropdown" for="dropdown-input">
+                                    <div class="dropdown-header-wrapper"> 
+                                        <span class="dropdown-value dropdown-value-WorkStatus">
+                                        </span>
+                                        <i class="fas fa-chevron-down icon-down show"></i>
+                                        <i class="fas fa-chevron-up icon-up"></i>
                                     </div>
-                                </div> -->
+                                    <ul class="dropdown-list dropdown-list-WorkStatus">
+                                    </ul>
+                                </label> 
                             </div>
                         </div>
     
@@ -395,5 +336,6 @@
         </div>
     </div>
 </div>
+<script src="../js/base/dropdown.js"></script>
 </body>
 </html>
