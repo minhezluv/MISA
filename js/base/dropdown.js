@@ -1,3 +1,6 @@
+
+
+
 //DROPDOWN 1
 // var dropdown = document.querySelector(".dropdown");
  var dropdownListGender = document.querySelector(".dropdown-list-gender");
@@ -5,13 +8,13 @@
 
 
 
-//DROPDOWN 2
+//Postition
 // var dropdown2 = document.querySelector(".dropdown-2");
 var dropdownListPostition = document.querySelector(".dropdown-list-PostitionName");
 var dropdownValuePostition = document.querySelector(".dropdown-value-PostitionName");
 
 
-//DROPDOWN 3
+//Department
  var dropdownListDepartment = document.querySelector(".dropdown-list-DeparmentName");
  var dropdownValueDepartment = document.querySelector(".dropdown-value-DepartmentName");
 
@@ -28,19 +31,22 @@ var dropdownValueWorkStatus = document.querySelector(".dropdown-value-WorkStatus
 var state = false;
 
 var currVal = 0;
+//test
+var dropdownList3 = document.querySelector(".dropdown-list-3");
+var dropdownValue3 = document.querySelector(".dropdown-value-3");
 
  var dropdownDataGender = [
      "Nam",
     "Nữ",
     "Không xác đinh",    
 ];
-
+ 
 
 
  var dropdownDataDepartment = [
 
-    "Phòng đào tạo",
-    "Phòng kinh doanh"
+    // "Phòng đào tạo",
+    // "Phòng kinh doanh"
  ];
 
 // var dropdownGender = [
@@ -49,20 +55,36 @@ var currVal = 0;
 //     "Không xác định"
 // ];
 var dropdownDataPostition=[
-    "Giám đốc",
-    "nhân viên"
 ]
+// $.ajax({
+//     url:"http://cukcuk.manhnv.net/v1/Positions",
+//     method: "GET",
+// }).done(function(res){
+//     let Positions=res;
+//     console.log(res);
+//     Positions.forEach(position=>{
+//         //dropdownDataPostition.push(position['PositionName']);
+//         var p=position['PositionName'];
+//         dropdownDataPostition.push(p);
+//     })
+
+// })
 
 var dropdownDataWorkStatus=[
-    "Đang làm việc",
-    "Nghỉ",
+    // "Đang làm việc",
+    // "Nghỉ",
 ]
+
+var dropdownGender = [
+    // "Nam",
+    // "Nữ",
+    // "Không xác định"
+];
+
 
 function renderDropdown(dropdownValue, dropdownList, dropdownData) {
 
     render();
-
-
     function render() {
         var dropdownListHTML = '';
         dropdownValue.innerText = dropdownData[currVal];
@@ -73,6 +95,7 @@ function renderDropdown(dropdownValue, dropdownList, dropdownData) {
             } else {
                 dropdownListHTML += `<li data-id=${i} class="dropdown-item"><i class="fas fa-check dropdown-item__icon"></i> ${dropdownData[i]} </li>`;
             }
+           
         }
 
         dropdownList.innerHTML = dropdownListHTML;
@@ -88,14 +111,32 @@ function renderDropdown(dropdownValue, dropdownList, dropdownData) {
         });
     }
 }
+try {
+    renderDropdown(dropdownValueGender, dropdownListGender, dropdownDataGender);
+} catch (error) {
+    console.log(error);
+}
 
-renderDropdown(dropdownValueGender, dropdownListGender, dropdownDataGender);
+try {
+    renderDropdown(dropdownValuePostition, dropdownListPostition , dropdownDataPostition);
+} catch (error) {
+    
+    console.log(error);
+}
 
- renderDropdown(dropdownValuePostition, dropdownListPostition , dropdownDataPostition);
+try {
+    renderDropdown(dropdownValueDepartment, dropdownListDepartment, dropdownDataDepartment);
+} catch (error) {
+    console.log(error);
+}
 
-renderDropdown(dropdownValueDepartment, dropdownListDepartment, dropdownDataDepartment);
+try {
+    renderDropdown(dropdownValueWorkStatus, dropdownListWorkStatus, dropdownDataWorkStatus);
+} catch (error) {
+    console.log(error);
+}
 
-renderDropdown(dropdownValueWorkStatus, dropdownListWorkStatus, dropdownDataWorkStatus);
+
 
 
 // CÁCH 1
