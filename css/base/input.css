@@ -14,7 +14,7 @@ input::placeholder{
 input:focus{
     border-color: #019160;
 }
-.input-search{
+.input-left{
     margin-left: 16px;
     padding-left: 40px;
     padding-top: 10px;
@@ -27,6 +27,32 @@ input:focus{
 .input-search:active{
     border: 1px solid #019160;
     
+}
+.input-right{
+    padding-left: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 40px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #BBBBBB;
+    text-align: right;
+   
+}
+.input-right-box{
+    position: relative;
+}
+.input-right-box .input-right-item{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 40px;
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    font-family:  MISAGoogleSans-Italic;
 }
 /* input.input-image{
     width: 40px;

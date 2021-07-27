@@ -4,17 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/layout/content.css">
     <link rel="stylesheet" href="../css/layout/header.css">
-
     <link rel="stylesheet" href="../css/layout/menu.css">
-    <link rel="stylesheet" href="../css/base/button.css">
-    <link rel="stylesheet" href="../css/base/text-box.css">
-    <link rel="stylesheet" href="../css/base/filter-bar.css">
-    <link rel="stylesheet" href="../css/base/select.css">
-    <link rel="stylesheet" href="../css/base/account.css">
-    <link rel="stylesheet" href="../css/page/employee.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/main.css">
     <title>Document</title>
 </head>
@@ -105,11 +98,11 @@
                             </div>
                             <div class="content-between-element">
                                 <div class="element">
-                                    <div class="between-element-title">Mã nhân viên (*)</div>
+                                    <div class="between-element-title">Mã nhân viên(<span class="m-asterisk ">*</span>)</div>
                                     <input  id="EmployeeCode" type="text" class="input-dialog-employee" required>
                                 </div>                 
                                 <div class="element">
-                                    <div class="between-element-title" >Họ và tên (*)</div>
+                                    <div class="between-element-title" >Họ và tên (<span class="m-asterisk">*</span>)</div>
                                     <input id="FullName" type="text" class="input-dialog-employee" required>
                                 </div>
                                
@@ -138,7 +131,7 @@
                             </div>
                             <div class="content-between-element">
                                 <div class="element">
-                                    <div class="between-element-title" >Số CMTND/ Căn cước(*)</div>
+                                    <div class="between-element-title" >Số CMTND/ Căn cước(<span class="m-asterisk">*</span>)</div>
                                     <input id="IdentityNumber" type="text" class="input-dialog-employee" required>
                                 </div>                 
                                 <div class="element">
@@ -157,11 +150,11 @@
                             </div>
                             <div class="content-between-element">
                                 <div class="element">
-                                    <div class="between-element-title" >Email (*)</div>
-                                    <input id="Email" type="text" class="input-dialog-employee" placeholder="email@gmail.com" >
+                                    <div class="between-element-title" >Email (<span class="m-asterisk">*</span>)</div>
+                                    <input id="Email" type="text" class="input-dialog-employee" placeholder="email@gmail.com" required>
                                 </div>                 
                                 <div class="element">
-                                    <div class="between-element-title" >Số điện thoại (*)</div>
+                                    <div class="between-element-title" >Số điện thoại (<span class="m-asterisk">*</span>)</div>
                                     <input id="PhoneNumber" type="text" class="input-dialog-employee" required>
                                 </div>
                                
@@ -174,7 +167,7 @@
                                 <div class="title-decor"></div>
                             </div>
                             <div class="content-between-element">
-                                <div class="content-between-element">
+                               
                                     <div class="element">
                                         <div class="between-element-title">Vị trí</div>
                                         <div class="wrapper wrapper-size-34">
@@ -195,7 +188,7 @@
                                         <div class="wrapper wrapper-size-34">
                                             <label class="dropdown" for="dropdown-input">
                                                 <div class="dropdown-header-wrapper"> 
-                                                    <span class="dropdown-value dropdown-value-DepartmentName" id="DepartmentName">
+                                                    <span class="dropdown-value dropdown-value-DepartmentName" id="DepartmentName" >
                                                     </span>
                                                     <i class="fas fa-chevron-down icon-down show"></i>
                                                     <i class="fas fa-chevron-up icon-up"></i>
@@ -206,23 +199,26 @@
                                         </div>
                                     </div>
                                    
-                                </div>
+                           
                             </div>
                             <div class="content-between-element">
-                                <div class="content-between-element">
+                               
                                     <div class="element">
                                         <div class="between-element-title">Mã số thuế cá nhân</div>
                                         <input type="text" class="input-dialog-employee" id="PersonalTaxCode">
                                     </div>                 
                                     <div class="element">
                                         <div class="between-element-title">Mức lương cơ bản</div>
-                                        <input type="text" class="input-dialog-employee" id="Salary">
+                                        <div class="input-right-box">
+                                        <input  type="text" class="input-dialog-employee input-right" id="Salary" style="width: 142px">
+                                        <div class="input-right-item">VND</div>
+                                    </div>  
                                     </div>
                                    
-                                </div>
+                               
                             </div>
                             <div class="content-between-element">
-                                <div class="content-between-element">
+                                
                                     <div class="element">
                                         <div class="between-element-title">Ngày gia nhập công ty</div>
                                         <input type="date" id="JoinDate" name="date-join-company" class="input-dialog-employee">
@@ -243,7 +239,7 @@
                                         </div>
                                     </div>
                 
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -262,7 +258,7 @@
         </div>
         <div class="filter-bar">
             <div class="filter-left">
-                <input class="icon-search input-search" style=" width: 245px;" type="text" placeholder="Tìm kiếm theo Mã, Tên hoặc Số điện thoại">
+                <input class="icon-search input-left" style=" width: 245px;" type="text" placeholder="Tìm kiếm theo Mã, Tên hoặc Số điện thoại">
                 <div class=" combobox " style="margin-left: 24px;">
                     <div class="combobox-first-data combobox-firstvalue-default" >Tất cả phòng ban</div>
                    
@@ -304,16 +300,16 @@
         <div class="grid grid-employee scroll-table">
             <table class="table" width="100%" id="EmployeeList">
                 <thead>
-                    <th>Mã nhân viên</th>
-                    <th>Họ và tên</th>
-                    <th>Giới tính</th>
-                    <th class="text-align-center">Ngày sinh</th>
-                    <th>Số điện thoại</th>
-                    <th>Email</th>
-                    <th>Chức vụ</th>
-                    <th>Phòng ban</th>
-                    <th class="text-align-right">Mức lương cơ bản</th>
-                    <th>Tình trạng công việc</th>
+                    <th fieldName="EmployeeCode">Mã nhân viên</th>
+                    <th fieldName="FullName">Họ và tên</th>
+                    <th fieldName="GenderName">Giới tính</th>
+                    <th class="text-align-center" fieldName="DateOfBirth">Ngày sinh</th>
+                    <th fieldName="PhoneNumber">Số điện thoại</th>
+                    <th fieldName="Email">Email</th>
+                    <th fieldName="PostitionName">Chức vụ</th>
+                    <th fieldName="DepartmentName">Phòng ban</th>
+                    <th fieldName="Salary" class="text-align-right">Mức lương cơ bản</th>
+                    <th fieldName="WorkStatus">Tình trạng công việc</th>
                 </thead>
                 <tbody>
                     

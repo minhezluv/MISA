@@ -42,34 +42,32 @@ table.table tbody tr:hover{
 table.table tbody tr.selected{
     background-color:#EBF9F4 ;
 }
-.grid-employee{
-    width: 100%;
-    overflow-y: auto;
-    height: calc(100vh - 206px);
 
-     
+/* EmployeeList */
+.grid-employee{
+    width: 1278px;
+    overflow-y: auto;
+    overflow-x: auto;
+    height: calc(100vh - 206px);
+    margin-left: 16px;
 }
 .scroll-table thead th{
     position: sticky;
     top:0;
-    
-}
-/* table ::-webkit-scrollbar{
-    width: 1px;
-    height: 20px;
-}
-table ::-webkit-scrollbar-thumb {
-    background: #888; 
-  }
-  
- 
-table ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  } */
-
-th{
     background-color: white;
     border-bottom:1px solid #E9EBEE ;
+    
 }
 
+.grid-employee::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+    background-color: lightgray;
+    border-radius: 3px;
+}
 
+.grid-employee::-webkit-scrollbar-thumb {
+    
+    background-color: grey;
+    border-radius: 3px;
+}

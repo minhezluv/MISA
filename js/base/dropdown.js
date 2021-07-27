@@ -1,29 +1,12 @@
-
-
-
-//DROPDOWN 1
-// var dropdown = document.querySelector(".dropdown");
+//Gender
  var dropdownListGender = document.querySelector(".dropdown-list-gender");
  var dropdownValueGender = document.querySelector(".dropdown-value-gender");
-
-
-
 //Postition
-// var dropdown2 = document.querySelector(".dropdown-2");
 var dropdownListPostition = document.querySelector(".dropdown-list-PostitionName");
 var dropdownValuePostition = document.querySelector(".dropdown-value-PostitionName");
-
-
 //Department
  var dropdownListDepartment = document.querySelector(".dropdown-list-DeparmentName");
- var dropdownValueDepartment = document.querySelector(".dropdown-value-DepartmentName");
-
-// var iconDown = document.querySelector(".icon-down");
-// var iconUp = document.querySelector(".icon-up");
-
-// console.log(dropdownList3);
-// console.log(dropdownValue3);
-
+ var dropdownValueDepartment = document.querySelector(".dropdown-value-DepartmentName"); 
 //WorkStatus
 var dropdownListWorkStatus = document.querySelector(".dropdown-list-WorkStatus");
 var dropdownValueWorkStatus = document.querySelector(".dropdown-value-WorkStatus");
@@ -31,69 +14,41 @@ var dropdownValueWorkStatus = document.querySelector(".dropdown-value-WorkStatus
 var state = false;
 
 var currVal = 0;
-//test
-var dropdownList3 = document.querySelector(".dropdown-list-3");
-var dropdownValue3 = document.querySelector(".dropdown-value-3");
 
- var dropdownDataGender = [
-     "Nam",
-    "Nữ",
-    "Không xác đinh",    
+//Danh sách giưới tính
+var dropdownDataGender = [
+    {id: 0, value:'Nữ'},
+    {id: 1, value:'Nam'},
+    {id: 2, value:'Không xác định'}
 ];
- 
+console.log(dropdownDataGender);
 
+//danh sách phòng
+var dropdownDataDepartment =GetDepartment();
 
- var dropdownDataDepartment = [
+//Danh sách vị trí
+var dropdownDataPostition=GetPosition();
 
-    // "Phòng đào tạo",
-    // "Phòng kinh doanh"
- ];
-
-// var dropdownGender = [
-//     "Nam",
-//     "Nữ",
-//     "Không xác định"
-// ];
-var dropdownDataPostition=[
-]
-// $.ajax({
-//     url:"http://cukcuk.manhnv.net/v1/Positions",
-//     method: "GET",
-// }).done(function(res){
-//     let Positions=res;
-//     console.log(res);
-//     Positions.forEach(position=>{
-//         //dropdownDataPostition.push(position['PositionName']);
-//         var p=position['PositionName'];
-//         dropdownDataPostition.push(p);
-//     })
-
-// })
-
+//Danh sách trạng thái công việc
 var dropdownDataWorkStatus=[
-    // "Đang làm việc",
-    // "Nghỉ",
+    {id: 0, value:'Đang làm việc'},
+    {id: 1, value:'Nghỉ việc'},
+    {id: 2, value:'Nghỉ phép'}
 ]
-
-var dropdownGender = [
-    // "Nam",
-    // "Nữ",
-    // "Không xác định"
-];
-
 
 function renderDropdown(dropdownValue, dropdownList, dropdownData) {
 
     render();
     function render() {
         var dropdownListHTML = '';
-        dropdownValue.innerText = dropdownData[currVal];
-
+        dropdownValue.innerText = dropdownData[currVal].value;
+        $(dropdownValue).attr('id',dropdownData[currVal].id);
+        
         for (var i = 0; i < dropdownData.length; i++) {
             if (i == currVal) {
-                dropdownListHTML += `<li data-id=${i} class="dropdown-item dropdown-item--active"><i class="fas fa-check dropdown-item__icon"></i> ${dropdownData[i]} </li>`;
+                dropdownListHTML += `<li id=${dropdownData[i].id} data-id=${i} class="dropdown-item dropdown-item--active"><i class="fas fa-check dropdown-item__icon"></i> ${dropdownData[i].value} </li>`;
             } else {
-                dropdownListHTML += `<li data-id=${i} class="dropdown-item"><i class="fas fa-check dropdown-item__icon"></i> ${dropdownData[i]} </li>`;
+                dropdownListHTML += `<li id=${dropdownData[i].id} data-id=${i} class="dropdown-item"><i class="fas fa-check dropdown-item__icon"></i> ${dropdownData[i].value} </li>`;
             }
            
         }
@@ -111,6 +66,9 @@ function renderDropdown(dropdownValue, dropdownList, dropdownData) {
         });
     }
 }
+
+
+
 try {
     renderDropdown(dropdownValueGender, dropdownListGender, dropdownDataGender);
 } catch (error) {
@@ -136,65 +94,7 @@ try {
     console.log(error);
 }
 
-
-
-
-// CÁCH 1
-// dropdown.addEventListener('click', function () {
-//     if (state == false) {
-//         dropdownList.style.display = "block";
-//         iconDown.style.display = "none";
-//         iconUp.style.display = "inline";
-//         state = true;
-//     } else {
-//         dropdownList.style.display = "none";
-//         iconDown.style.display = "inline";
-//         iconUp.style.display = "none";
-//         state = false;
-//     }
-// });
-
-
-// CÁCH 2:
-// dropdown.addEventListener('click', function () {
-//     if (dropdownList.classList.contains('show')) {
-//         dropdownList.classList.remove('show');
-//         iconDown.classList.add('show');
-//         iconUp.classList.remove('show');
-//     } else {
-//         dropdownList.classList.add('show');
-//         iconDown.classList.remove('show');
-//         iconUp.classList.add('show');
-//     }
-// });
-
-// CÁCH 3: 
-// dropdown.addEventListener('click', function () {
-//     dropdownList.classList.toggle('show');
-//     iconUp.classList.toggle('show');
-//     iconDown.classList.toggle('show');
-// });
-
-// dropdown2.addEventListener('click', function () {
-//     dropdownList2.classList.toggle('show');
-//     iconUp.classList.toggle('show');
-//     iconDown.classList.toggle('show');
-// });
-
 var dropdowns = document.querySelectorAll(".dropdown");
-
-// dropdowns[0].addEventListener('click', function () {
-//     dropdowns[0].querySelector('.dropdown-list').classList.toggle('show');
-//     iconUp.classList.toggle('show');
-//     iconDown.classList.toggle('show');
-// })
-
-// dropdowns[1].addEventListener('click', function () {
-//     dropdowns[1].querySelector('.dropdown-list').classList.toggle('show');
-//     iconUp.classList.toggle('show');
-//     iconDown.classList.toggle('show');
-// })
-
 dropdowns.forEach((dropdown) => {
     dropdown.addEventListener('click', function () {
         dropdown.querySelector('.dropdown-list').classList.toggle('show');
@@ -202,4 +102,61 @@ dropdowns.forEach((dropdown) => {
         dropdown.querySelector('.icon-down').classList.toggle('show');
     });
 });
+
+
+/**
+ * 
+ * @returns Danh sách vị trí 
+ * CreatedBy: nqminh(24/7)
+ */
+function GetPosition() {
+    var dropdownDataPostition=[];
+    $.ajax({
+        url:"http://cukcuk.manhnv.net/v1/Positions",
+        method: "GET",
+        async: false,
+    }).done(function(res){
+        let Positions=res;
+        console.log(res);
+        Positions.forEach(position=>{
+            var element={}; 
+            element['id']=position.PositionId;
+            element['value']=position.PositionName;
+            dropdownDataPostition.push(element);
+        })
+    
+    }).fail(function(res){
+        console.log(res);
+    })
+    return dropdownDataPostition;
+}
+
+
+/**
+ * 
+ * @returns Danh sách phòng 
+ * CreatedBy: nqminh(24/7)
+ */
+
+function  GetDepartment() {
+    var dropdownDataDepartment=[];
+    $.ajax({
+        url:"http://cukcuk.manhnv.net/api/Department",
+        method: "GET",
+        async: false,
+    }).done(function(res){
+        let Positions=res;
+        console.log(res);
+        Positions.forEach(department=>{
+            var element={}; 
+            element['id']=department.DepartmentId;
+            element['value']=department.DepartmentName;
+            dropdownDataDepartment.push(element);
+        })
+    
+    }).fail(function(res){
+        console.log(res);
+    })
+    return dropdownDataDepartment;
+}
 
