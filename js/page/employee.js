@@ -1,11 +1,10 @@
 $(document).ready(function() {
     form = 0;
     employeeId = null;
-    destroyPointer = null
+    destroyPointer = null;
     loadData();
-
     //reload dữ liệu trên table
-    $(".m-btn-refresh").click(loadData);
+    $(".m-btn-refresh").click(loadData());
 
     $(".btn-add").click(function() {
         form = 1;
@@ -17,19 +16,21 @@ $(document).ready(function() {
         CreateEmployeeCode();
     })
 
-    //Kiểm tra dữ liệu
+    // //Kiểm tra dữ liệu
 
-    $("input[required]").blur(function() {
-        //kiểm tra thông tin có nhập hay không
-        var value = $(this).val();
-        if (value == "") {
-            $(this).css("border", "1px solid red");
-            $(this).attr("title", "Bắt buộc nhập");
-        } else {
-            $(this).css("border", "1px solid #019160");
-            $(this).removeAttr("title");
-        }
-    })
+    // $("input[required]").blur(function() {
+    //     //kiểm tra thông tin có nhập hay không
+    //     var value = $(this).val();
+    //     if (value == "") {
+    //         $(this).css("border", "1px solid red");
+    //         $(this).attr("title", "Bắt buộc nhập");
+    //     } else {
+    //         $(this).css("border", "1px solid #019160");
+    //         $(this).removeAttr("title");
+    //     }
+    // })
+
+    CommomFunction.inputSelect();
 
     //thoat form
     $(".m-btn-destroy").click(function() {
@@ -64,7 +65,6 @@ $(document).ready(function() {
 
     //sửa thông tin nhân viên
     $('#EmployeeList').on('dblclick', 'tbody tr', function() {
-
         try {
             form = 0;
             //Hiển thị form chi tiết thông tin 
@@ -115,48 +115,8 @@ $(document).ready(function() {
 
     //lưu nhân viên
     $(".m-btn-save").click(function() {
-
-
-        var employee = {
-            Address: "TH",
-            CreatedBy: null,
-            CreatedDate: "2021-07-23T01:28:34",
-            DateOfBirth: "2000-01-08T00:00:00",
-            DepartmentCode: "PB89",
-            DepartmentId: "17120d02-6ab5-3e43-18cb-66948daf6128",
-            DepartmentName: "Phòng đào tạo",
-            EducationalBackground: null,
-            EducationalBackgroundName: null,
-            Email: "nhanvien.MF314@misa.cukcuk.vn",
-            EmployeeCode: "MF-314",
-            EmployeeId: "4c0bfc85-eb55-11eb-94eb-42010a8c0002",
-            FirstName: null,
-            FullName: "Đỗ Thu Huy",
-            Gender: 2,
-            GenderName: "Không xác định",
-            IdentityDate: "2021-07-19T00:00:00",
-            IdentityNumber: "038258172848",
-            IdentityPlace: "AMERICA",
-            JoinDate: "2021-07-19T00:00:00",
-            LastName: null,
-            MartialStatus: null,
-            MartialStatusName: null,
-            ModifiedBy: null,
-            ModifiedDate: null,
-            PersonalTaxCode: "8974565",
-            PhoneNumber: "0889445530",
-            PositionCode: "P94",
-            PositionId: "548dce5f-5f29-4617-725d-e2ec561b0f41",
-            PositionName: "Nhân viên",
-            QualificationId: null,
-            QualificationName: null,
-            Salary: 595028852,
-            WorkStatus: 3,
-        };
-
-
+        var employee = {};
         //Thu thập dữ liệu
-
         employee.FullName = $("#FullName").val();
         employee.EmployeeCode = $("#EmployeeCode").val();
         employee.IdentityNumber = $("#IdentityNumber").val();
@@ -168,11 +128,11 @@ $(document).ready(function() {
         employee.Salary = $("#Salary").val();
         employee.PersonalTaxCode = $("#PersonalTaxCode").val();
         employee.JoinDate = $("#JoinDate").val();
-        employee.DepartmentName = $(".dropdown-value-DepartmentName").text();
+        //    employee.DepartmentName = $(".dropdown-value-DepartmentName").text();
         employee.DepartmentId = $(".dropdown-value-DepartmentName").attr("id");
         employee.PositionId = $(".dropdown-value-PostitionName").attr("id");
-        employee.PositionName = $(".dropdown-value-PostitionName").text();
-        employee.GenderName = $(".dropdown-value-gender").text();
+        //   employee.PositionName = $(".dropdown-value-PostitionName").text();
+        //   employee.GenderName = $(".dropdown-value-gender").text();
         employee.Gender = $(".dropdown-value-gender").attr("id");
         if (!isEmail(employee.Email)) {
             $("#Email").css("border", "1px solid red");
@@ -180,19 +140,7 @@ $(document).ready(function() {
         } else {
             addEmployee(employee);
         }
-
-
     });
-
-
-
-
-
-
-
-
-
-
 })
 
 
@@ -313,34 +261,44 @@ function formatGender(value) {
  */
 
 function addEmployee(employee) {
-    var methodType;
-    var Note;
-    var Url;
-    if (form == 0) {
-        Url = `http://cukcuk.manhnv.net/v1/Employees/${employeeId}`;
-        methodType = "PUT";
-        Note = "Sửa thành công";
-    } else {
-        Url = "http://cukcuk.manhnv.net/v1/Employees";
-        methodType = "POST";
-        Note = "Thêm mới thành công";
+    try {
+        var methodType;
+        var Note;
+        var Url;
+        if (form == 0) {
+            Url = `http://cukcuk.manhnv.net/v1/Employees/${employeeId}`;
+            methodType = "PUT";
+            Note = "Sửa thành công";
+        } else {
+            Url = "http://cukcuk.manhnv.net/v1/Employees";
+            methodType = "POST";
+            Note = "Thêm mới thành công";
+        }
+
+
+        $.ajax({
+
+            url: Url,
+            method: methodType,
+            data: JSON.stringify(employee),
+            dataType: "json",
+            contentType: "application/json"
+        }).done(res => {
+            alert(Note);
+            loadData();
+            $(".dialog-employee").hide();
+        }).fail(res => {
+            if (res.responseJSON.data['Server Error Code'] == 1062) {
+                alert('Mã nhân viên này đã được sử dụng');
+            } else {
+                alert('thêm mới thất bại');
+            }
+
+        })
+    } catch (error) {
+        console.log(error);
     }
 
-
-    $.ajax({
-
-        url: Url,
-        method: methodType,
-        data: JSON.stringify(employee),
-        dataType: "json",
-        contentType: "application/json"
-    }).done(res => {
-        alert(Note);
-        loadData();
-        $(".dialog-employee").hide();
-    }).fail(res => {
-        alert('thêm mới thất bại');
-    })
 }
 
 /**
@@ -354,7 +312,6 @@ function CreateEmployeeCode() {
         method: "GET",
     }).done(function(res) {
         $("#EmployeeCode").val(res);
-
         console.log(res);
 
     })

@@ -102,25 +102,25 @@
                             <div class="content-between-element">
                                 <div class="element">
                                     <div class="between-element-title">Mã nhân viên(<span class="m-asterisk ">*</span>)</div>
-                                    <input id="EmployeeCode" type="text" class="input-dialog-employee" required>
+                                    <input id="EmployeeCode" type="text" class="input-dialog-employee" fieldname="EmployeeCode" required>
                                 </div>
                                 <div class="element">
                                     <div class="between-element-title">Họ và tên (<span class="m-asterisk">*</span>)</div>
-                                    <input id="FullName" type="text" class="input-dialog-employee" required>
+                                    <input id="FullName" type="text" class="input-dialog-employee" fieldname="FullName" required>
                                 </div>
 
                             </div>
                             <div class="content-between-element">
                                 <div class="element">
                                     <div class="between-element-title">Ngày sinh</div>
-                                    <input id="DateOfBirth" type="date" id="birthday" name="birthday" class="input-dialog-employee" required>
+                                    <input id="DateOfBirth" type="date" id="birthday" name="birthday" class="input-dialog-employee" fieldname="DateOfBirth">
                                 </div>
                                 <div class="element">
                                     <div class="between-element-title">Giới tính</div>
                                     <div class="wrapper wrapper-size-34">
                                         <label class="dropdown" for="dropdown-input">
                                             <div class="dropdown-header-wrapper"> 
-                                                <span class="dropdown-value dropdown-value-gender" id="Gender">
+                                                <span class="dropdown-value dropdown-value-gender" id="Gender" fieldname="Gender">
                                                 </span>
                                                 <i class="fas fa-chevron-down icon-down show"></i>
                                                 <i class="fas fa-chevron-up icon-up"></i>
@@ -135,18 +135,18 @@
                             <div class="content-between-element">
                                 <div class="element">
                                     <div class="between-element-title">Số CMTND/ Căn cước(<span class="m-asterisk">*</span>)</div>
-                                    <input id="IdentityNumber" type="text" class="input-dialog-employee" required>
+                                    <input id="IdentityNumber" type="text" class="input-dialog-employee" fieldname="IdentityNumber" required>
                                 </div>
                                 <div class="element">
                                     <div class="between-element-title">Ngày cấp</div>
-                                    <input type="date" id="IdentityDate" name="cmt-date" class="input-dialog-employee" required>
+                                    <input type="date" id="IdentityDate" name="cmt-date" class="input-dialog-employee" fieldname="IdentityDate">
                                 </div>
 
                             </div>
                             <div class="content-between-element">
                                 <div class="element">
                                     <div class="between-element-title">Nơi cấp</div>
-                                    <input id="IdentityPlace" type="text" class="input-dialog-employee" required>
+                                    <input id="IdentityPlace" type="text" class="input-dialog-employee" fieldname="IdentityPlace">
                                 </div>
 
 
@@ -154,11 +154,11 @@
                             <div class="content-between-element">
                                 <div class="element">
                                     <div class="between-element-title">Email (<span class="m-asterisk">*</span>)</div>
-                                    <input id="Email" type="text" class="input-dialog-employee" placeholder="email@gmail.com" required>
+                                    <input id="Email" type="text" class="input-dialog-employee" placeholder="email@gmail.com" fieldname="Email" required>
                                 </div>
                                 <div class="element">
                                     <div class="between-element-title">Số điện thoại (<span class="m-asterisk">*</span>)</div>
-                                    <input id="PhoneNumber" type="text" class="input-dialog-employee" required>
+                                    <input id="PhoneNumber" type="text" class="input-dialog-employee" fieldname="PhoneNumber" required>
                                 </div>
 
                             </div>
@@ -176,7 +176,7 @@
                                     <div class="wrapper wrapper-size-34">
                                         <label class="dropdown" for="dropdown-input">
                                                 <div class="dropdown-header-wrapper"> 
-                                                    <span class="dropdown-value dropdown-value-PostitionName" id="PostitionName">
+                                                    <span class="dropdown-value dropdown-value-PostitionName" id="PostitionId"  fieldname="PostitionId">
                                                     </span>
                                                     <i class="fas fa-chevron-down icon-down show"></i>
                                                     <i class="fas fa-chevron-up icon-up"></i>
@@ -191,7 +191,7 @@
                                     <div class="wrapper wrapper-size-34">
                                         <label class="dropdown" for="dropdown-input">
                                                 <div class="dropdown-header-wrapper"> 
-                                                    <span class="dropdown-value dropdown-value-DepartmentName" id="DepartmentName" >
+                                                    <span class="dropdown-value dropdown-value-DepartmentName" id="DepartmentId" fieldname="DepartmentId" >
                                                     </span>
                                                     <i class="fas fa-chevron-down icon-down show"></i>
                                                     <i class="fas fa-chevron-up icon-up"></i>
@@ -208,12 +208,12 @@
 
                                 <div class="element">
                                     <div class="between-element-title">Mã số thuế cá nhân</div>
-                                    <input type="text" class="input-dialog-employee" id="PersonalTaxCode">
+                                    <input type="text" class="input-dialog-employee" id="PersonalTaxCode" fieldname="PersonalTaxCode">
                                 </div>
                                 <div class="element">
                                     <div class="between-element-title">Mức lương cơ bản</div>
                                     <div class="input-right-box">
-                                        <input type="text" class="input-dialog-employee input-right" id="Salary" style="width: 142px">
+                                        <input type="text" class="input-dialog-employee input-right" id="Salary" style="width: 142px" fieldname="Salary">
                                         <div class="input-right-item">VND</div>
                                     </div>
                                 </div>
@@ -224,21 +224,19 @@
 
                                 <div class="element">
                                     <div class="between-element-title">Ngày gia nhập công ty</div>
-                                    <input type="date" id="JoinDate" name="date-join-company" class="input-dialog-employee">
+                                    <input type="date" id="JoinDate" name="date-join-company" class="input-dialog-employee" fieldname="JoinDate">
                                 </div>
                                 <div class="element">
                                     <div class="between-element-title">Tình trạng công việc</div>
                                     <div class="wrapper wrapper-size-34">
                                         <label class="dropdown" for="dropdown-input">
-                                                <div class="dropdown-header-wrapper"> 
-                                                    <span class="dropdown-value dropdown-value-WorkStatus" id="WorkStatus">
-                                                    </span>
-                                                    <i class="fas fa-chevron-down icon-down show"></i>
-                                                    <i class="fas fa-chevron-up icon-up"></i>
+                                            <div class="dropdown-header-wrapper"> 
+                                                <span class="dropdown-value dropdown-value-WorkStatus" id="WorkStatus"  fieldname="WorkStatus"></span>
+                                                <i class="fas fa-chevron-down icon-down show"></i>
+                                                <i class="fas fa-chevron-up icon-up"></i>
                                                 </div>
-                                                <ul class="dropdown-list dropdown-list-WorkStatus">
-                                                </ul>
-                                            </label>
+                                            <ul class="dropdown-list dropdown-list-WorkStatus"></ul>
+                                        </label>
                                     </div>
                                 </div>
 
@@ -262,36 +260,28 @@
         <div class="filter-bar">
             <div class="filter-left">
                 <input class="icon-search input-left" style=" width: 245px;" type="text" placeholder="Tìm kiếm theo Mã, Tên hoặc Số điện thoại">
-                <div class=" combobox " style="margin-left: 24px;">
-                    <div class="combobox-first-data combobox-firstvalue-default">Tất cả phòng ban</div>
-
-                    <button class="btn-combobox height-btn-40" style=""><i class="fas fa-solid fa-chevron-down"></i></button>
-                    <!-- <div class="combobox-data">
-                        
-                        <div class="combobox-item combobox-item-selected">
-                            <div class="combobox-item-icon icon-combobox-selected "></div>
-                            <div class="combobox-item-text">jkhakds</div>
-                         </div>
-                        <div class="combobox-item">
-                            <div class="combobox-item-icon"></div>
-                            <div class="combobox-item-text">sadasd</div>
-                        </div>
-                    </div> -->
+                <div class="wrapper wrapper-size-40 dropdown-space">
+                    <label class="dropdown" for="dropdown-input">
+                            <div class="dropdown-header-wrapper"> 
+                                <span class="dropdown-value value-DepartmentName-search" id="DepartmentName" ></span> 
+                                <i class="fas fa-chevron-down icon-down show"></i>
+                                <i class="fas fa-chevron-up icon-up"></i>
+                            </div>
+                            <ul class="dropdown-list list-DeparmentName-search">
+                            </ul>
+                        </label>
                 </div>
-                <div class=" combobox" style="margin-left: 24px;">
-                    <div class="combobox-first-data combobox-firstvalue-default">Tất cả vị trí</div>
-                    <button class="btn-combobox height-btn-40" style=""><i class="fas fa-solid fa-chevron-down"></i></button>
-                    <!-- <div class="combobox-data">
-                    
-                    <div class="combobox-item combobox-item-selected">
-                        <div class="combobox-item-icon icon-combobox-selected "></div>
-                        <div class="combobox-item-text">jkhakds</div>
-                     </div>
-                    <div class="combobox-item">
-                        <div class="combobox-item-icon"></div>
-                        <div class="combobox-item-text">sadasd</div>
-                    </div>
-                </div> -->
+                <div class="wrapper wrapper-size-40 dropdown-space">
+                    <label class="dropdown" for="dropdown-input">
+                            <div class="dropdown-header-wrapper"> 
+                                <span class="dropdown-value value-PostitionName-search" id="PostitionName">
+                                </span>
+                                <i class=" fas fa-chevron-down icon-down show"></i>
+                                <i class=" fas fa-chevron-up icon-up"></i>
+                            </div>
+                            <ul class="dropdown-list list-PostitionName-search">
+                            </ul>
+                        </label>
                 </div>
             </div>
             <div class="filter-right">
@@ -302,8 +292,8 @@
         </div>
         <div class="grid grid-employee scroll-table">
             <table class="table" width="100%" id="EmployeeList">
-                <thead>
-                    <th fieldname="EmployeeCode">Mã nhân viên</th>
+                <thead fieldname="EmployeeId">
+                    <th fieldname="EmployeeCode" formatType="code">Mã nhân viên</th>
                     <th fieldname="FullName">Họ và tên</th>
                     <th fieldname="GenderName">Giới tính</th>
                     <th class="text-align-center" fieldname="DateOfBirth" formatType="ddmmyyyy">Ngày sinh</th>
@@ -344,8 +334,11 @@
 
 
     <script src="../lib/jquery-3.6.0.min.js"></script>
-    <!-- <script src="../js/base/common.js"></script> -->
-    <script src="../js/base/baseJS.js"></script>
+    <script src="../js/base/Common.js"></script>
+    <script src="../js/base/Base.js"></script>
+    <script src="../js/callapi/EmployeeAPI.js"></script>
+    <script src="../js/callapi/DepartmentAPI.js"></script>
+    <script src="../js/callapi/PositionAPI.js"></script>
     <script src="../js/base/Dropdown.js"></script>
     <script src="../js/page/Employee_oop.js"></script>
 </body>
