@@ -120,7 +120,7 @@
                                     <div class="wrapper wrapper-size-34">
                                         <label class="dropdown" for="dropdown-input">
                                             <div class="dropdown-header-wrapper"> 
-                                                <span class="dropdown-value dropdown-value-gender" id="Gender" fieldname="Gender">
+                                                <span class="dropdown-value dropdown-value-gender" id="Gender" fieldname="Gender" type="dropdown">
                                                 </span>
                                                 <i class="fas fa-chevron-down icon-down show"></i>
                                                 <i class="fas fa-chevron-up icon-up"></i>
@@ -135,7 +135,7 @@
                             <div class="content-between-element">
                                 <div class="element">
                                     <div class="between-element-title">Số CMTND/ Căn cước(<span class="m-asterisk">*</span>)</div>
-                                    <input id="IdentityNumber" type="text" class="input-dialog-employee" fieldname="IdentityNumber" required>
+                                    <input id="IdentityNumber" type="text" class="input-dialog-employee" fieldname="IdentityNumber" testinput="number" onchange="checkNumber()" required>
                                 </div>
                                 <div class="element">
                                     <div class="between-element-title">Ngày cấp</div>
@@ -158,7 +158,7 @@
                                 </div>
                                 <div class="element">
                                     <div class="between-element-title">Số điện thoại (<span class="m-asterisk">*</span>)</div>
-                                    <input id="PhoneNumber" type="text" class="input-dialog-employee" fieldname="PhoneNumber" required>
+                                    <input id="PhoneNumber" type="text" class="input-dialog-employee" fieldname="PhoneNumber" testinput="number" onchange="checkNumber()" required>
                                 </div>
 
                             </div>
@@ -176,7 +176,7 @@
                                     <div class="wrapper wrapper-size-34">
                                         <label class="dropdown" for="dropdown-input">
                                                 <div class="dropdown-header-wrapper"> 
-                                                    <span class="dropdown-value dropdown-value-PostitionName" id="PostitionId"  fieldname="PostitionId">
+                                                    <span class="dropdown-value dropdown-value-PostitionName" id="PostitionId"  fieldname="PostitionId" type="dropdown">
                                                     </span>
                                                     <i class="fas fa-chevron-down icon-down show"></i>
                                                     <i class="fas fa-chevron-up icon-up"></i>
@@ -191,7 +191,7 @@
                                     <div class="wrapper wrapper-size-34">
                                         <label class="dropdown" for="dropdown-input">
                                                 <div class="dropdown-header-wrapper"> 
-                                                    <span class="dropdown-value dropdown-value-DepartmentName" id="DepartmentId" fieldname="DepartmentId" >
+                                                    <span class="dropdown-value dropdown-value-DepartmentName" id="DepartmentId" fieldname="DepartmentId" type="dropdown" >
                                                     </span>
                                                     <i class="fas fa-chevron-down icon-down show"></i>
                                                     <i class="fas fa-chevron-up icon-up"></i>
@@ -208,17 +208,15 @@
 
                                 <div class="element">
                                     <div class="between-element-title">Mã số thuế cá nhân</div>
-                                    <input type="text" class="input-dialog-employee" id="PersonalTaxCode" fieldname="PersonalTaxCode">
+                                    <input type="text" class="input-dialog-employee" id="PersonalTaxCode" fieldname="PersonalTaxCode" onchange="checkNumber()">
                                 </div>
                                 <div class="element">
                                     <div class="between-element-title">Mức lương cơ bản</div>
                                     <div class="input-right-box">
-                                        <input type="text" class="input-dialog-employee input-right" id="Salary" style="width: 142px" fieldname="Salary">
-                                        <div class="input-right-item">VND</div>
+                                        <input type="text" class="input-dialog-employee input-right" id="Salary" style="width: 142px" fieldname="Salary" onchange="checkNumber()">
+                                        <div class="input-right-item">(VND)</div>
                                     </div>
                                 </div>
-
-
                             </div>
                             <div class="content-between-element">
 
@@ -231,7 +229,7 @@
                                     <div class="wrapper wrapper-size-34">
                                         <label class="dropdown" for="dropdown-input">
                                             <div class="dropdown-header-wrapper"> 
-                                                <span class="dropdown-value dropdown-value-WorkStatus" id="WorkStatus"  fieldname="WorkStatus"></span>
+                                                <span class="dropdown-value dropdown-value-WorkStatus" id="WorkStatus"  fieldname="WorkStatus" type="dropdown"></span>
                                                 <i class="fas fa-chevron-down icon-down show"></i>
                                                 <i class="fas fa-chevron-up icon-up"></i>
                                                 </div>

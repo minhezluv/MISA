@@ -8,7 +8,7 @@ class EmpployeeJS extends baseJS {
     }
     setDatUrl() {
         this.getDataUrl = "http://cukcuk.manhnv.net/v1/Employees";
-        this.objCode = "EmployeeCode";
+        // this.getDialogName = ".dialog-employee";
     }
 
 

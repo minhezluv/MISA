@@ -26,4 +26,25 @@ function GetDepartment() {
     })
     return dropdownDataDepartment;
 }
+
+function getNameDepartment(departmentId) {
+    $.ajax({
+        url: "http://cukcuk.manhnv.net/api/Department",
+        method: "GET",
+        async: false,
+    }).done(function(res) {
+        let Department = res;
+        console.log(res);
+        Department.forEach(department => {
+            if (departmentId == department.DepartmentId) {
+                return department.DepartmentName;
+            } else {
+                return "";
+            }
+        })
+
+    }).fail(function(res) {
+        console.log(res);
+    })
+}
 //}

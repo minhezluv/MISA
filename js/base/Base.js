@@ -3,7 +3,7 @@ class baseJS {
     constructor() {
 
         this.getDataUrl = null;
-        this.getDialogName = null;
+        // this.getDialogName = null;
         this.objId = null;
         this.setDatUrl();
         this.loadData();
@@ -19,8 +19,8 @@ class baseJS {
         var objId = this.objId;
         var point = this;
         var dataUrl = this.getDataUrl;
-        //Cảnh báo khi chưa nhập thông tin
-        CommomFunction.inputSelect();
+
+        inputSelect();
 
         //reload dữ liệu trên table
         $(".m-btn-refresh").click(function() {
@@ -30,28 +30,25 @@ class baseJS {
         $(".btn-add").click(function() {
             form = 1;
             //Hiển thị form thêm nhân viên
-            $(".dialog-employee").show();
+            $(".dialog").show();
+            //   console.log(dialogName);
             //reset Form
-            $(".dialog-employee input").val(null);
+            $(".dialog input").val(null);
             CreateEmployeeCode();
         })
 
         //thoat form
         $(".m-btn-destroy").click(function() {
-            $(".dialog-employee").hide();
+            $(".dialog").hide();
             $(destroyPointer).removeAttr('style');
 
         })
 
 
         //Xóa nhân viên
-
         $("#EmployeeList").on("mousedown", "tbody tr", function(res) {
-
             if (res.which == 3) {
-
                 try {
-
                     //lấy id của nhân viên
                     objId = $(this).attr('id');
                     var objCode = $('tbody tr td').attr('code');
@@ -86,35 +83,28 @@ class baseJS {
                 console.log(objId);
                 $(this).attr('style', 'background-color:#019160');
                 $.ajax({
-                    //  url: `http://cukcuk.manhnv.net/v1/Employees/${objId}`,
                     url: dataUrl + `/${objId}`,
                     method: 'GET'
                 }).done(function(res) {
-                    //binding dữ liệu lên form
-                    console.log(res);
-                    var DateOfBirth = formatDateDialog(res.DateOfBirth);
-                    var JoinDate = formatDateDialog(res.JoinDate);
-                    var IdentityDate = formatDateDialog(res.IdentityDate);
-                    //console.log(DateOfBirth);
-                    $("#FullName").val(res.FullName);
-                    $("#EmployeeCode").val(res.EmployeeCode);
-                    $("#IdentityNumber").val(res.IdentityNumber);
-                    $("#IdentityPlace").val(res.IdentityPlace);
-                    $("#IdentityDate").val(IdentityDate);
-                    $("#Email").val(res.Email);
-                    $("#PhoneNumber").val(res.PhoneNumber);
-                    $("#DateOfBirth").val(DateOfBirth);
-                    $("#Salary").val(res.Salary);
-                    $("#PersonalTaxCode").val(res.PersonalTaxCode);
-                    $("#JoinDate").val(JoinDate);
-                    $(".dropdown-value-DepartmentName").val(res.DepartmentName);
-                    $(".dropdown-value-DepartmentName").attr("id", res.DepartmentId);
-                    $(".dropdown-value-PostitionName").attr("id", res.PositionId);
-                    $(".dropdown-value-PostitionName").val(res.PositionName);
-                    $(".dropdown-value-gender").text(res.GenderName);
-                    $(".dropdown-value-gender").attr("id", res.Gender);
-                    // console.log(res.PositionName);
 
+                    console.log(res);
+
+                    var inputs = $(' span[fieldname],input[fieldname]');
+
+                    $.each(inputs, function(index, input) {
+                        var propertyName = $(this).attr('fieldName');
+                        console.log(this);
+                        // console.log(propertyName);
+                        var value = res[propertyName];
+                        if ($(this).attr('type') == "dropdown") {
+                            $(this).attr('value-id', value);
+                        } else if ($(this).attr('type') == "date") {
+                            $(this).val(formatDateDialog(value));
+                        } else {
+                            $(this).val(value);
+                        }
+
+                    });
                 }).fail(function(res) {
                     //đưa ra thông báo lỗi
                     console.log('error');
@@ -127,37 +117,65 @@ class baseJS {
 
         //lưu nhân viên
         $(".m-btn-save").click(function() {
-            var inputs = $('input[fieldname]');
-            console.log(inputs);
-            var employee = {};
-            //Thu thập dữ liệu
-            employee.FullName = $("#FullName").val();
-            employee.EmployeeCode = $("#EmployeeCode").val();
-            employee.IdentityNumber = $("#IdentityNumber").val();
-            employee.IdentityPlace = $("#IdentityPlace").val();
-            employee.IdentityDate = $("#IdentityDate").val();
-            employee.Email = $("#Email").val();
-            employee.PhoneNumber = $("#PhoneNumber").val();
-            employee.DateOfBirth = $("#DateOfBirth").val();
-            employee.Salary = $("#Salary").val();
-            employee.PersonalTaxCode = $("#PersonalTaxCode").val();
-            employee.JoinDate = $("#JoinDate").val();
-            employee.DepartmentName = $(".dropdown-value-DepartmentName").text();
-            employee.DepartmentId = $(".dropdown-value-DepartmentName").attr("value-id");
-            employee.PositionId = $(".dropdown-value-PostitionName").attr("value-id");
-            employee.PositionName = $(".dropdown-value-PostitionName").text();
-            employee.GenderName = $(".dropdown-value-gender").text();
-            employee.Gender = $(".dropdown-value-gender").attr("value-id");
-            // if (!CommomFunction.testInput()) {
-            //     alert('Cần nhập đủ các trường cần thiết');
-            // } else 
-            if (!CommomFunction.isEmail(employee.Email)) {
-                $("#Email").css("border", "1px solid red");
-                $("#Email").attr("title", "Cần nhập đúng định dạng");
 
-            } else {
-                addEmployee(employee, form);
+            try {
+                var inputs = $(' span[fieldname],input[fieldname]');
+                // console.log(inputs);
+                //Khởi tạo đối tượng
+                var entity = {};
+                //Lấy thông tin của đối tượng
+                $.each(inputs, function(index, input) {
+                    var propertyName = $(this).attr('fieldName');
+                    console.log(propertyName);
+                    var value = null;
+                    if ($(this).attr('type') == "dropdown") {
+                        value = $(this).attr('value-id');
+                    } else {
+                        value = $(this).val();
+                    }
+                    entity[propertyName] = value;
+                });
+
+                //Gọi service tương ứng thực hiện lưu dữ liệu
+
+                var methodType;
+                var Note;
+                var Url;
+                if (form == 0) {
+                    Url = dataUrl + `/${objId}`
+                    methodType = "PUT";
+                    Note = "Sửa thành công";
+                } else {
+                    Url = dataUrl;
+                    methodType = "POST";
+                    Note = "Thêm mới thành công";
+                }
+
+
+                $.ajax({
+
+                    url: Url,
+                    method: methodType,
+                    data: JSON.stringify(entity),
+                    dataType: "json",
+                    contentType: "application/json"
+                }).done(res => {
+                    alert(Note);
+                    point.loadData();
+                    $(".dialog-employee").hide();
+                }).fail(res => {
+                    if (res.responseJSON.data['Server Error Code'] == 1062) {
+                        alert('Mã này đã được sử dụng');
+                    } else {
+                        alert('thêm mới thất bại');
+                    }
+
+                })
+            } catch (error) {
+                //in ra mã lỗi
+                console.log(error);
             }
+
 
         });
 
@@ -192,11 +210,11 @@ class baseJS {
                         var value = obj[fieldName];
                         switch (formatType) {
                             case "ddmmyyyy":
-                                value = CommomFunction.formatDate(value);
+                                value = formatDate(value);
                                 $(td).addClass("text-align-center");
                                 break;
                             case "money":
-                                value = CommomFunction.formatMoney(value);
+                                value = formatMoney(value);
                                 $(td).addClass("text-align-right");
                                 break;
                             case "code":

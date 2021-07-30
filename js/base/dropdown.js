@@ -48,6 +48,7 @@ var dropdownDataWorkStatus = [
     { id: 2, value: 'Nghỉ phép' }
 ]
 
+
 function renderDropdown(dropdownValue, dropdownList, dropdownData) {
 
     render();
@@ -80,6 +81,14 @@ function renderDropdown(dropdownValue, dropdownList, dropdownData) {
     }
 }
 
+var dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+    dropdown.addEventListener('click', function() {
+        dropdown.querySelector('.dropdown-list').classList.toggle('show');
+        dropdown.querySelector('.icon-up').classList.toggle('show');
+        dropdown.querySelector('.icon-down').classList.toggle('show');
+    });
+});
 
 //Danh sách Giới tính Dialog
 try {
@@ -119,12 +128,3 @@ try {
 } catch (error) {
     console.log(error);
 }
-
-var dropdowns = document.querySelectorAll(".dropdown");
-dropdowns.forEach((dropdown) => {
-    dropdown.addEventListener('click', function() {
-        dropdown.querySelector('.dropdown-list').classList.toggle('show');
-        dropdown.querySelector('.icon-up').classList.toggle('show');
-        dropdown.querySelector('.icon-down').classList.toggle('show');
-    });
-});
