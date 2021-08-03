@@ -93,8 +93,8 @@ class baseJS {
 
                     $.each(inputs, function(index, input) {
                         var propertyName = $(this).attr('fieldName');
-                        console.log(this);
-                        // console.log(propertyName);
+                        //  console.log(this);
+                        console.log(propertyName);
                         var value = res[propertyName];
                         if ($(this).attr('type') == "dropdown") {
                             $(this).attr('value-id', value);
