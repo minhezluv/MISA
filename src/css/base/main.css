@@ -1,0 +1,60 @@
+@import url('Button.css');
+@import url('Paging.css');
+@import url('Icon.css');
+@import url('Input.css');
+@import url('Table.css');
+@import url('Combox.css');
+@import url('Dialog.css');
+@import url('Dropdown.css');
+@import url('Text-box.css');
+@import url('Filter-bar.css');
+@import url('Account.css');
+body {
+    font-family: MISAGoogleSans;
+    font-size: 13px;
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: MISAGoogleSans;
+    src: url("../../assets/font/GoogleSans-Regular.otf");
+}
+
+@font-face {
+    font-family: MISAGoogleSans-Bold;
+    src: url("../../assets/font/GoogleSans-Bold.otf");
+}
+
+@font-face {
+    font-family: MISAGoogleSans-Italic;
+    src: url("../../assets/font/GoogleSans-Italic.otf");
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.left-16 {
+    margin-left: 16px;
+}
+
+.right-16 {
+    margin-right: 16px;
+}
+
+.left-32 {
+    margin-left: 32px;
+}
+
+.font-16 {
+    font-size: 16px;
+}

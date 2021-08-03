@@ -1,0 +1,152 @@
+.icon-16 {
+    width: 16px;
+    height: 16px;
+}
+
+.icon-24 {
+    height: 24px;
+    width: 24px;
+}
+
+.icon-160 {
+    height: 160px;
+    width: 160px;
+}
+
+.circle-icon {
+    border-radius: 50%;
+    border: 1px solid #bbbbbb;
+}
+
+.icon {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.icon .bombobox-selected {
+    background-image: url("../../assets/icon/refresh.png");
+}
+
+.icon-add {
+    background-image: url("../../assets/icon/add.png");
+}
+
+.m-btn-refresh {
+    background-image: url("../../assets/icon/refresh.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    outline: none;
+    height: 40px;
+    width: 40px;
+}
+
+.account-more-setting {
+    background-image: url("../../assets/icon/option.png");
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    margin-left: 16px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+}
+
+
+/* paging */
+
+.m-firstpage-icon {
+    float: left;
+    background-image: url("../../assets/icon/btn-firstpage.svg");
+    margin-left: 0px;
+    margin-right: 16px;
+}
+
+.m-prevpage-icon {
+    float: left;
+    margin-right: 32px;
+    background-image: url("../../assets/icon/btn-prev-page.svg");
+    margin-left: 16px;
+}
+
+.m-lastpage-icon {
+    float: right;
+    background-image: url("../../assets/icon/btn-lastpage.svg");
+    margin-right: 0px;
+    margin-left: 16px;
+}
+
+.m-nextpage-icon {
+    float: right;
+    background-image: url("../../assets/icon/btn-next-page.svg");
+    margin-right: 16px;
+    margin-left: 32px;
+}
+
+
+/* end-paging */
+
+
+/* menu */
+
+.menu .menu-item .menu-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background-size: contain;
+}
+
+.menu-icon.menu-icon-dashboard {
+    background-image: url("../../assets/icon/dashboard.png");
+}
+
+.menu-icon.menu-icon-report {
+    background-image: url("../../assets/icon/report.png");
+}
+
+.menu-icon.menu-icon-buy {
+    background-image: url("../../assets/icon/dashboard.png");
+}
+
+.menu-icon.menu-icon-dic-employee {
+    background-image: url("../../assets/icon/dic-employee.png");
+}
+
+.menu-icon.menu-icon-setting {
+    background-image: url("../../assets/icon/setting.png");
+}
+
+
+/* end menu */
+
+
+/* input search */
+
+.icon-search {
+    background-repeat: no-repeat;
+    background-position: 16px center;
+    background-image: url("../../assets/icon/search.png");
+}
+
+.icon-combobox-selected {
+    /* background-image: url("../../assets/icon/checkmark-16.ico"); */
+    background-repeat: no-repeat;
+}
+
+
+/* Dialog */
+
+.dialog-image-employee {
+    background-image: url("../../assets/img/default-avatar.jpg");
+}
+
+.input-image-icon {
+    background-image: url("../../assets/img/default-avatar.jpg");
+    margin-left: 9px;
+    margin-right: 9px;
+    margin-top: 16px;
+}
+
+.icon-save {
+    padding-left: 16px;
+    background-image: url("../../assets/icon/add.png");
+}

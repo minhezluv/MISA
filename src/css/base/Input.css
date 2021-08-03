@@ -1,0 +1,93 @@
+input {
+    padding-left: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 16px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #BBBBBB;
+    font-family: MISAGoogleSans;
+}
+
+input::placeholder {
+    font-size: 11px;
+}
+
+input:focus {
+    border-color: #019160;
+}
+
+.input-left {
+    margin-left: 16px;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 16px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #BBBBBB;
+}
+
+.input-search:active {
+    border: 1px solid #019160;
+}
+
+.input-right {
+    padding-left: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 40px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #BBBBBB;
+    text-align: right;
+}
+
+.input-right-box {
+    position: relative;
+}
+
+.input-right-box .input-right-item {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 40px;
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    font-family: MISAGoogleSans-Italic;
+}
+
+
+/* input.input-image{
+    width: 40px;
+    height: 40px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    border-radius: 50%;
+    outline: none;
+    border: 1px solid #BBBBBB;
+    background-color: cadetblue;
+} */
+
+
+/* employee manager  */
+
+input[type="file"] {
+    display: none;
+}
+
+.input-dialog-employee {
+    width: 166px;
+    border: 1px solid #bbbbbb;
+    height: 12px;
+}
+
+input[type="date"] {
+    padding-right: 5px;
+    width: 177px;
+}
