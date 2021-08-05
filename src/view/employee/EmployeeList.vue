@@ -106,9 +106,9 @@
 import axios from 'axios';
 import moment from 'moment';
 import EmployeeDetail from './EmployeeDetail.vue';
-import BaseButton from '../../components/base/BaseButton.vue';
+
 export default {
-  components: { EmployeeDetail, BaseButton },
+  components: { EmployeeDetail },
     Name:'EmployeeList',
     component:{},
     mounted() {
