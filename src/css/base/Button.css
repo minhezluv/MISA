@@ -1,9 +1,9 @@
-.btn{
+.btn {
     display: flex;
     /* height: 40px; */
     border-radius: 4px;
     color: #ffffff;
-    padding-left:16px ;
+    padding-left: 16px;
     text-align: center;
     padding-right: 16px;
     background-color: #019160;
@@ -15,21 +15,27 @@
     align-items: center;
     cursor: pointer;
 }
-.btn .btn-text{
+
+.btn .btn-text {
     margin-left: 8px;
 }
-.btn:hover{
+
+.btn:hover {
     background-color: #2FBEBE;
 }
-.btn.button:active{
+
+.btn.button:active {
     background-color: #01B075;
 }
+
+
 /* .btn .icon-add{
     background-image: url("../../content/icon/add.png");
 } */
-.m-second-button{
+
+.m-second-button {
     border-radius: 4px;
-    border:1px solid #bbbbbb;
+    border: 1px solid #bbbbbb;
     color: #000000;
     padding-left: 24px;
     padding-right: 24px;
@@ -37,9 +43,12 @@
     cursor: pointer;
     background-color: white;
 }
-.m-second-button:hover{
+
+.m-second-button:hover {
     background-color: #e9ebee;
 }
+
+
 /* .m-btn-refresh{
     background-image: url("../../content/icon/refresh.png");
     background-repeat: no-repeat;
@@ -60,8 +69,8 @@
 
 
 /* paging */
-.m-btn-page{
-    
+
+.m-btn-page {
     display: inline-block;
     background-size: contain;
     background-repeat: no-repeat;
@@ -72,16 +81,16 @@
     margin-top: 8px;
     margin-bottom: 8px;
     background-color: #e9ebee;
-    border-color:#e9ebee ;
-   border: none;
+    border-color: #e9ebee;
+    border: none;
 }
-.m-btn-page:hover{
+
+.m-btn-page:hover {
     background-color: white;
 }
 
-
-.m-btn-pagenumber{
-    color: black;   
+.m-btn-pagenumber {
+    color: black;
     float: left;
     width: 40px;
     height: 40px;
@@ -90,7 +99,7 @@
     border-radius: 50%;
     background-size: contain;
     align-items: center;
-    border:1px solid #bbbbbb;
+    border: 1px solid #bbbbbb;
     text-align: center;
     margin-left: 8px;
     margin-right: 8px;
@@ -98,14 +107,16 @@
     display: grid;
     background-color: #e9ebee;
 }
-.m-btn-pagenumber:hover{
+
+.m-btn-pagenumber:hover {
     background-color: white;
 }
-.active-page{
+
+.active-page {
     background-color: #019160;
 }
 
-.m-btn-save{
+.m-btn-save {
     height: 40px;
     width: 90px;
     right: 16px;
@@ -113,18 +124,21 @@
     text-align: center;
 }
 
-.m-btn-destroy{
+.m-btn-destroy {
     height: 40px;
     width: 90px;
-   margin-right: 16px;
+    margin-right: 16px;
     right: 100px;
     position: absolute;
     text-align: center;
     background-color: #e9ebee;
 }
-.btn-destroy-text{
+
+.btn-destroy-text {
     margin-left: 17px;
     color: black;
 }
 
-
+.btn-delete {
+    margin-left: 16px;
+}
