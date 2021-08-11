@@ -1,207 +1,120 @@
-<template>
-  <div>
-    <div class="wrapper wrapper-size-34">
-      <label @click="showDropdown()" class="dropdown" for="dropdown-input">
+<template lang="">
+      <label  @blur="hideDropdown()"  @click="showDropdown()" class="wrapper dropdown wrapper-size-40 dropdown-space">
         <div class="dropdown-header-wrapper">
-          <span
-            class="dropdown-value dropdown-value-PostitionName"
-            id="PostitionId"
-            fieldname="PostitionId"
-            type="dropdown"
-          >{{dropdownBindValue}}
+          <span class="dropdown-value">
+            {{ dropdownBindValue }}
           </span>
-          <i class="fas fa-chevron-down icon-down show"></i>
-          <i class="fas fa-chevron-up icon-up"></i>
+          <i :class="{ 'fas fa-chevron-down icon-down show': !dropdownState, 'fas fa-chevron-up icon-up show': dropdownState }"></i>
         </div>
-        <ul class="dropdown-list dropdown-list-PostitionName" :style="{display: dropdownShow}">
-            <li  class="dropdown-item" v-for="(item, index) in dropdownData" :key="index" v-bind:class="{active:(itemActive == index)}" @click="itemClick(index)">
-                {{item}} 
-            </li>
+        <ul
+          class="dropdown-list "
+          :class="{'dropdown-list-top':!dropdownBottom,
+          'dropdown-list-bottom':dropdownBottom}"
+          :style="{ display: dropdownShow }"
+        >
+          <li
+            @click="itemClick(-1)"
+            :class="{ active: itemActive == -1 }"
+            class="dropdown-item"
+          >
+            <i
+              class="fas fa-check"
+              :class="{
+                'dropdown-icon-show': itemActive == -1,
+                'dropdown-icon-hidden': itemActive != -1,
+              }"
+            ></i>
+            {{ dropdownDefaultVal }}
+          </li>
+          <li
+            class="dropdown-item"
+            v-for="(item, index) in dropdownData"
+            :key="index"
+            v-bind:class="{ active: itemActive == index }"
+            @click="itemClick(index)"
+          >
+            <i
+              class="fas fa-check"
+              :class="{
+                'dropdown-icon-show': itemActive == index,
+                'dropdown-icon-hidden': itemActive != index,
+              }"
+            ></i>
+            {{ item[dropdownName + "Name"] }}
+          </li>
         </ul>
       </label>
-    </div>
-  </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
-    name:'BaseDropdown',
-    props:{
-        dropdownValue:String
+  name: "BaseDropdown",
+  props: {
+    APIurl: String,
+    dropdownDefaultVal: String,
+    dropdownName: String,
+    sizeDropdown:Boolean,
+    dropdownBottom:{
+        type:Boolean,
+        default:false
+      },
+  },
+  data() {
+    return {
+      dropdownData: [],
+      dropdownState: false,
+      itemActive: -1,
+      
+    };
+  },
+
+  methods: {
+    showDropdown() {
+        console.log('hi');
+      this.dropdownState = !this.dropdownState;
     },
-    data() {
-        return {
-            dropdownData:[
-                "Phòng nhân sự",
-                "Phòng bảo vệ"
-
-            ],
-            dropdownState:false,
-            itemActive:-5,
-           
-        };
-
+    itemClick(index) {
+      console.log(index);
+      this.itemActive = index;
     },
-    methods: {
-        showDropdown(){
-            this.dropdownState =!this.dropdownState;
-        },
-        itemClick(index){
-            console.log(index);
-            this.itemActive=index;
-        },
-
+    hideDropdown() {
+      console.log('hide');
+      this.dropdownState = false;
     },
-    computed:{
-        dropdownShow(){
-            if(this.dropdownState){
-                return 'block';
-            }else{
-                return 'none';
-            }
-        },
-        dropdownBindValue(){
-            return this.dropdownData[this.itemActive];
-        },
 
-    }
-}
+    getData() {
+      axios
+        .get(this.APIurl)
+        .then((res) => {
+          this.dropdownData = res.data;
+       
+        })
+        .catch((res) => {
+          console.log(res);
+        });
+    },
+  },
+  computed: {
+    dropdownShow() {
+      if (this.dropdownState) {
+        this.getData();
+        return "block";
+      } else {
+        return "none";
+      }
+    },
+    dropdownBindValue() {
+      if (this.itemActive == -1) {
+        return this.dropdownDefaultVal;
+      } else {
+        return this.dropdownData[this.itemActive][this.dropdownName + "Name"];
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
-.wrapper {
-    display: flex;
-    border-radius: 4px;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-}
-
-.wrapper-size-40 {
-    width: 180px;
-    height: 40px;
-}
-
-.wrapper-size-34 {
-    width: 198px;
-    height: 34px;
-}
-
-.dropdown {
-    width: 198px;
-    border-radius: 4px;
-    border: 1px solid #bbbbbb;
-    position: relative;
-    margin: auto;
-    height: 100%;
-}
-
-.dropdown:focus {
-    border-color: #019160;
-}
-
-.dropdown-value {
-    /* padding: 10px 8px; */
-    /* display: block; */
-    cursor: pointer;
-    display: flex;
-    /* justify-content: space-between; */
-    padding-left: 16px;
-    width: calc(100% - 40px)
-}
-
-.dropdown .dropdown-header-wrapper i {
-    font-size: 16px;
-    position: relative;
-}
-
-.dropdown-list {
-    margin: 0;
-    padding-left: 0;
-    list-style: none;
-    background-color: #fff;
-    position: absolute;
-    top: calc(100% + 1px);
-    left: 0;
-    right: 0;
-    display: none;
-    border-radius: 0 0 4px 4px;
-    border: 1px solid #ddd;
-    z-index: 9;
-}
-
-.dropdown-item {
-    padding: 10px 8px;
-    cursor: pointer;
-    display: block;
-}
-
-.active {
-    background-color: #019160;
-    color: #fff;
-}
-
-.dropdown-item:hover {
-    background-color: #e1e1e1;
-    color: #000;
-}
-
-.icon-down {
-    /* display: none; */
-}
-
-.icon-up {
-    display: none;
-}
-
-#dropdown-input:checked~.dropdown-list {
-    display: block;
-}
-
-#dropdown-input:checked~.dropdown-value .icon-down {
-    display: none;
-}
-
-#dropdown-input:checked~.dropdown-value .icon-up {
-    display: block;
-}
-
-
-/* ghi de */
-
-.icon-down,
-.icon-up,
-.dropdown-list {
-    display: none;
-}
-
-.icon-down.show,
-.icon-up.show,
-.dropdown-list.show {
-    display: block;
-}
-
-.dropdown-header-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-right: 12px;
-    height: 100%;
-    cursor: pointer;
-}
-
-.dropdown-item__icon {
-    font-size: 12px;
-    margin-right: 4px;
-    visibility: hidden;
-}
-
- .dropdown-item__icon {
-    visibility: visible;
-}
-
-.dropdown-space {
-    margin-left: 16px;
-    margin-right: 16px;
-}
+@import url("../../css/base/Dropdown.css");
 </style>

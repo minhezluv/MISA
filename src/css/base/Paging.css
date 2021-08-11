@@ -1,23 +1,23 @@
-.paging-bar{
+.paging-bar {
     display: flex;
     position: relative;
     width: 100%;
-    height:56px ;
-   
+    height: 56px;
     bottom: 0px;
     justify-content: center;
     align-items: center;
-    background-color: #e9ebee;
+    background-color: #E5E5E5;
 }
-.paging-bar .paging-left{
+
+.paging-bar .paging-left {
     position: absolute;
     left: 0;
     width: 25%;
     height: 100%;
     min-width: 220px;
-   
 }
-.paging-bar .paging-left .paging-left-text{
+
+.paging-bar .paging-left .paging-left-text {
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 16px;
@@ -25,36 +25,39 @@
     text-align: left;
     padding-right: 32px;
 }
-.paging-bar .paging-right{
+
+.paging-bar .paging-right {
     position: absolute;
     right: 0;
     width: 25%;
     height: 100%;
     min-width: 220px;
- 
 }
-.paging-bar .paging-right .paging-right-text{
+
+.paging-bar .paging-right .paging-right-text {
     margin-top: 20px;
     margin-bottom: 20px;
     margin-right: 16px;
     text-align: right;
 }
-.paging-bar .pagination {   
+
+.paging-bar .pagination {
     display: inline-block;
     justify-self: center;
     height: 100%;
-    width: 507px;
-   
+    width: 472px;
 }
-.paging-bar .pagination-number{
+
+.paging-bar .pagination-number {
     display: inline-block;
     justify-self: center;
     position: absolute;
     height: 100%;
-    width: 224px; 
+    width: 224px;
     align-content: center;
-    
 }
+
+
 /* .paging-bar .pagination .pagination-left{
     width: 10%;
     height: 56px;
@@ -73,6 +76,8 @@
     width: 10%;
     height: 56px;
 } */
+
+
 /* .paging-bar .pagination a {
     align-content: center;
     color: black;
@@ -88,7 +93,8 @@
     text-align: center;
     margin-left: 8px
   } */
-  
+
+
 /* .pagination a.active {
     background-color: #019160;
   }

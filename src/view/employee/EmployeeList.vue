@@ -4,16 +4,20 @@
       <div class="page-title">
         <div class="title">Danh sách nhân viên</div>
         <div class="page-feature">
-          <button class="btn misa-btn-default btn-add">
+          <button
+            class="btn misa-btn-default btn-delete"
+            :class="{ buttonShow: isShowed }"
+            hidden
+          >
+            <div class="icon-delete icon-16 icon"></div>
+            <div class="btn-text" @click="deleteEmployee(false)">
+              Xóa nhân viên
+            </div>
+          </button>
+          <button class="btn misa-btn-default btn-add" >
             <div class="icon-add icon-16 icon"></div>
             <div class="btn-text" @click="addEmployee(false)">
               Thêm nhân viên
-            </div>
-          </button>
-          <button class="btn misa-btn-default btn-delete" :class="{'buttonShow': isShowed}">
-            <div class="icon-add icon-16 icon"></div>
-            <div class="btn-text" @click="deleteEmployee(false)" >
-             Xóa nhân viên
             </div>
           </button>
         </div>
@@ -26,44 +30,31 @@
             type="text"
             placeholder="Tìm kiếm theo Mã, Tên hoặc Số điện thoại"
           />
-          <div class="wrapper wrapper-size-40 dropdown-space">
-            <label class="dropdown" for="dropdown-input">
-              <div class="dropdown-header-wrapper">
-                <span
-                  class="dropdown-value value-DepartmentName-search"
-                  id="DepartmentName"
-                ></span>
-                <i class="fas fa-chevron-down icon-down show"></i>
-                <i class="fas fa-chevron-up icon-up"></i>
-              </div>
-              <ul class="dropdown-list list-DeparmentName-search"></ul>
-            </label>
-          </div>
-          <div class="wrapper wrapper-size-40 dropdown-space">
-            <label class="dropdown" for="dropdown-input">
-              <div class="dropdown-header-wrapper">
-                <span
-                  class="dropdown-value value-PostitionName-search"
-                  id="PostitionName"
-                >
-                </span>
-                <i class="fas fa-chevron-down icon-down show"></i>
-                <i class="fas fa-chevron-up icon-up"></i>
-              </div>
-              <ul class="dropdown-list list-PostitionName-search"></ul>
-            </label>
-          </div>
+          <base-drop-down
+            :sizeDropdown="true"
+            :id="'position'"
+            :tabindex="3"
+            :APIurl="APIurl__POSITION"
+            :dropdownDefaultVal="dropdownDefaultVal__POSITION"
+            :dropdownName="dropdownName__POSITION"
+          />
+          <base-drop-down
+            :sizeDropdown="false"
+            :id="'departmant'"
+            :tabindex="2"
+            :APIurl="APIurl__DEPARTMENT"
+            :dropdownDefaultVal="dropdownDefaultVal__DEPARTMENT"
+            :dropdownName="dropdownName__DEPARTMENT"
+          />
         </div>
         <div class="filter-right">
-          <button class="m-second-button m-btn-refresh"></button>
+          <button class="btn m-second-button m-btn-refresh icon-refresh" @click="reloadData()"></button>
         </div>
       </div>
       <div class="grid grid-employee scroll-table">
         <table class="table" width="100%" id="EmployeeList">
           <thead fieldname="EmployeeId">
-            <th >
-            
-            </th>
+            <th></th>
             <th fieldname="EmployeeCode" formatType="code">Mã nhân viên</th>
             <th fieldname="FullName">Họ và tên</th>
             <th fieldname="GenderName">Giới tính</th>
@@ -89,14 +80,14 @@
               :key="employee.EmployeeId"
               @dblclick="upDateEmployee(employee.EmployeeId)"
             >
-            <td>
-              <input
-                type="checkbox"
-                class="table-employee__checkbox"
-                v-model="deleteByID"
-                :value="employee.EmployeeId"
-              />
-            </td>
+              <td>
+                <input
+                  type="checkbox"
+                  class="table-employee__checkbox"
+                  :value="employee.EmployeeId"
+                />
+                <span class="misa-checkmark"></span>
+              </td>
               <td>{{ employee.EmployeeCode }}</td>
               <td>{{ employee.FullName }}</td>
               <td>{{ employee.GenderName }}</td>
@@ -150,9 +141,10 @@
 import axios from "axios";
 import moment from "moment";
 import EmployeeDetail from "./EmployeeDetail.vue";
-
+import BaseDropDown from "../../components/base/BaseDropdown.vue";
+import $ from 'jquery'
 export default {
-  components: { EmployeeDetail },
+  components: { EmployeeDetail, BaseDropDown },
   Name: "EmployeeList",
   component: {},
   mounted() {
@@ -175,10 +167,19 @@ export default {
       employeeId: null,
       isHideDialog: true,
       formMode: null,
-      isShowed:{
-        type:Boolean,
-        default:false
-      }
+      isShowed: {
+        type: Boolean,
+        default: false,
+      },
+      // POSITION
+      APIurl__POSITION: "http://cukcuk.manhnv.net/v1/Positions",
+      dropdownDefaultVal__POSITION: "Tất cả vị trí",
+      dropdownName__POSITION: "Position",
+
+      // DEPARTMENT
+      APIurl__DEPARTMENT: "http://cukcuk.manhnv.net/api/Department",
+      dropdownDefaultVal__DEPARTMENT: "Tất cả phòng ban",
+      dropdownName__DEPARTMENT: "Department",
     };
   },
 
@@ -191,9 +192,7 @@ export default {
       this.isHideDialog = isHide;
       this.formMode = 0;
     },
-    deleteEmployee() {
-      alert("delete");
-    },
+
     upDateEmployee(employeeId) {
       // alert(employeeId);
       this.isHideDialog = false;
@@ -219,25 +218,42 @@ export default {
       var num = Intl.NumberFormat().format(value);
       return num;
     },
+
+    /**
+     * load dư liệu
+     * 
+     */
+    reloadData(){
+       $("tbody").empty();
+      this.employees = [];
+       var vm = this;
+      //Gọi Api lấy dữ liệu:
+      axios
+      .get("http://cukcuk.manhnv.net/v1/Employees")
+      .then((res) => {
+        vm.employees = res.data;
+        //   console.log(res.data);
+      })
+      .catch((res) => {
+        console.log(res);
+      });
+    },
+    /**
+     * Xóa dữ liệu
+     */
+        deleteEmployee() {
+      alert("delete");
+    },
   },
-  watch:{
-     deleteByID: function(){
-          this.$emit('sendDeleteElement', this.deleteByID);
-        },
-  }
+  watch: {
+    //  deleteByID: function(){
+    //       this.$emit('sendDeleteElement', this.deleteByID);
+    //     },
+  },
 };
 </script>
 
 
 <style scoped>
-.table-employee__checkbox {
-                height: 20px;
-                width: 20px;
-                background: var(--checkbox-color) !important;
-                cursor: pointer;
-            }
 
-            .table-employee__checkbox:checked {
-                background-color: var(--checkbox-color);
-            }
 </style>

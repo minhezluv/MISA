@@ -1,31 +1,38 @@
-.content{
+.content {
     position: absolute;
-    top:49px;
-    left:226px;
+    top: 49px;
+    left: 226px;
     width: calc(100% - 226px);
     height: calc(100vh - 49px);
-    background-color:white;
-  
+    background-color: white;
 }
+
+
 /* Page-title */
-.content .page-title{
+
+.content .page-title {
     padding: 16px;
     display: flex;
-    align-items: center;  
+    align-items: center;
 }
-.content .page-title .title{
+
+.content .page-title .title {
     font-size: 20px;
     font-weight: bold;
 }
-.content .page-title .page-feature{
+
+.content .page-title .page-feature {
     position: absolute;
-    right: 16px ;
+    right: 16px;
     font-family: MISAGoogleSans-Bold;
+    display: flex;
+    flex-direction: row;
 }
 
 
-
 /*  Paging */
+
+
 /* .content .paging-bar{
     display: flex;
     position: absolute;

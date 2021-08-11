@@ -1,160 +1,37 @@
 <template>
-    <div>
-      <button class="btn">
-            <div 
-            class="icon"
-            :class="{iconLeft}"
-            ></div>
-            <div v-if="textButton" class="btn-text" v-text="textButton"></div>
-        </button>
-    </div>
+  <button  :class="[buttonFunction, buttonType]" @click="btnClick"  @keydown.enter="btnClick">
+    <div v-if="iconType" class="icon" :class="[iconType, iconSize]"></div>
+    <div class="btn-text" v-if="textButton" v-text="textButton"></div>
+  </button>
 </template>
 
 <script>
 export default {
-    name:'MsButton',
-    props:{
-        functionType:{
-            type:String,
-        },
-        iconType:{
-            type:String,
-        },
-        iconSize:{
-            type:String,
-        },
-        iconLeft:{
-            type:Boolean,
-            default:false
-        },
-        iconRight:{
-            type:Boolean,
-            default:false
-        },
-        textButton:String,
-        
+  name: "MsButton",
+  props: {
+    buttonType: String,
+    buttonFunction:String,
+    iconType: {
+      type: String,
+      default: "",
+    },
+    iconSize: {
+      type: String,
+      default: "",
+    },
+    icon: {
+      type: Boolean,
+      default: true,
+    },
+
+    textButton: String,
+    btnClick:{
+      type: Function
     }
-}
+  },
+};
 </script>
 
 <style scoped>
-.btn{
-    display: flex;
-    /* height: 40px; */
-    border-radius: 4px;
-    color: #ffffff;
-    padding-left:16px ;
-    text-align: center;
-    padding-right: 16px;
-    background-color: #019160;
-    line-height: 40px;
-    font-size: 13px;
-    font-family: MISAGoogleSans;
-    border: none;
-    outline: none;
-    align-items: center;
-    cursor: pointer;
-}
- .btn-text{
-    margin-left: 8px;
-}
-.btn:hover{
-    background-color: #2FBEBE;
-}
-.btn.button:active{
-    background-color: #01B075;
-}
-/* .btn .icon-add{
-    background-image: url("../../content/icon/add.png");
-} */
-.m-second-button{
-    border-radius: 4px;
-    border:1px solid #bbbbbb;
-    color: #000000;
-    padding-left: 24px;
-    padding-right: 24px;
-    text-align: center;
-    cursor: pointer;
-    background-color: white;
-}
-.m-second-button:hover{
-    background-color: #e9ebee;
-}
-
-
-/* paging */
-.m-btn-page{
-    
-    display: inline-block;
-    background-size: contain;
-    background-repeat: no-repeat;
-    outline: none;
-    height: 39px;
-    width: 39px;
-    border-radius: 4px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    background-color: #e9ebee;
-    border-color:#e9ebee ;
-   border: none;
-}
-.m-btn-page:hover{
-    background-color: white;
-}
-
-
-.m-btn-pagenumber{
-    color: black;   
-    float: left;
-    width: 40px;
-    height: 40px;
-    margin-top: 7px;
-    margin-bottom: 7px;
-    border-radius: 50%;
-    background-size: contain;
-    align-items: center;
-    border:1px solid #bbbbbb;
-    text-align: center;
-    margin-left: 8px;
-    margin-right: 8px;
-    cursor: pointer;
-    display: grid;
-    background-color: #e9ebee;
-}
-.m-btn-pagenumber:hover{
-    background-color: white;
-}
-.active-page{
-    background-color: #019160;
-}
-
-.m-btn-save{
-    height: 40px;
-    width: 90px;
-    right: 16px;
-    position: absolute;
-    text-align: center;
-}
-
-.m-btn-destroy{
-    height: 40px;
-    width: 90px;
-   margin-right: 16px;
-    right: 100px;
-    position: absolute;
-    text-align: center;
-    background-color: #e9ebee;
-}
-.btn-destroy-text{
-    margin-left: 17px;
-    color: black;
-}
-
-.icon-16{
-    width: 16px;
-    height:16px;
-}
-
-
 
 </style>

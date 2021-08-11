@@ -1,11 +1,13 @@
 table.table {
     border-collapse: collapse;
+    position: relative
 }
 
 table.table thead th {
     height: 50px;
     padding: 0 10px;
     white-space: nowrap;
+    border-bottom: 1px #E9EBEE;
 }
 
 table th,
@@ -53,7 +55,7 @@ tbody tr.selected {
 /* EmployeeList */
 
 .grid-employee {
-    width: 1278px;
+    width: calc( 100% - 32px);
     overflow-y: auto;
     overflow-x: auto;
     height: calc(100vh - 206px);

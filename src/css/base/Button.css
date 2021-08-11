@@ -34,14 +34,17 @@
 } */
 
 .m-second-button {
-    border-radius: 4px;
-    border: 1px solid #bbbbbb;
     color: #000000;
-    padding-left: 24px;
-    padding-right: 24px;
     text-align: center;
     cursor: pointer;
     background-color: white;
+}
+
+.m-btn-refresh {
+    border-radius: 4px;
+    border: 1px solid #bbbbbb;
+    padding-left: 14px;
+    padding-right: 24px;
 }
 
 .m-second-button:hover {
@@ -75,13 +78,13 @@
     background-size: contain;
     background-repeat: no-repeat;
     outline: none;
-    height: 39px;
-    width: 39px;
+    height: 30px;
+    width: 30px;
     border-radius: 4px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    background-color: #e9ebee;
-    border-color: #e9ebee;
+    margin-top: 13px;
+    margin-bottom: 13px;
+    background-color: #E5E5E5;
+    border-color: #E5E5E5;
     border: none;
 }
 
@@ -110,10 +113,12 @@
 
 .m-btn-pagenumber:hover {
     background-color: white;
+    color: black;
 }
 
 .active-page {
     background-color: #019160;
+    color: white;
 }
 
 .m-btn-save {
@@ -140,5 +145,20 @@
 }
 
 .btn-delete {
-    margin-left: 16px;
+    margin-right: 16px;
+    background-color: crimson;
+}
+
+.m-btn-exit {
+    border-radius: 4px;
+    border: white;
+    height: 40px;
+    width: 40px;
+    right: 0;
+    position: absolute;
+    top: 0;
+}
+
+.m-btn-destroy:hover {
+    background-color: #BBBBBB;
 }

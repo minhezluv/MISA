@@ -8,6 +8,11 @@
     width: 24px;
 }
 
+.icon-32 {
+    width: 32px;
+    height: 32px;
+}
+
 .icon-160 {
     height: 160px;
     width: 160px;
@@ -32,7 +37,11 @@
     background-image: url("../../assets/icon/add.png");
 }
 
-.m-btn-refresh {
+.icon-delete {
+    background-image: url("../../assets/icon/delete.png");
+}
+
+.icon-refresh {
     background-image: url("../../assets/icon/refresh.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -141,12 +150,16 @@
 
 .input-image-icon {
     background-image: url("../../assets/img/default-avatar.jpg");
-    margin-left: 9px;
-    margin-right: 9px;
+    margin-left: 24px;
+    margin-right: 16px;
     margin-top: 16px;
 }
 
 .icon-save {
     padding-left: 16px;
     background-image: url("../../assets/icon/add.png");
+}
+
+.icon-exit {
+    background-image: url("../../assets/icon/x.svg");
 }

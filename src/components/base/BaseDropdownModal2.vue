@@ -1,5 +1,7 @@
 <template lang="">
-      <label  @blur="hideDropdown()"  @click="showDropdown()" class="wrapper dropdown wrapper-size-34 dropdown-space">
+
+      <label  @blur="hideDropdown()"  @click="showDropdown()" class="wrapper dropdown wrapper-size-34 ">
+  
         <div class="dropdown-header-wrapper">
           <span class="dropdown-value">
             {{ dropdownBindValue }}
@@ -8,6 +10,8 @@
         </div>
         <ul
           class="dropdown-list "
+           :class="{'dropdown-list-top':!dropdownBottom,
+          'dropdown-list-bottom':dropdownBottom}"
           :style="{ display: dropdownShow }"
         >
           <li
@@ -47,12 +51,16 @@
 <script>
 import axios from "axios";
 export default {
-  name: "BaseDropdown",
+  name: "BaseDropdownModal2",
   props: {
     APIurl: String,
     dropdownDefaultVal: String,
     dropdownName: String,
-    sizeDropdown:Boolean
+    sizeDropdown:Boolean,
+       dropdownBottom:{
+        type:Boolean,
+        default:false
+      },
   },
   data() {
     return {
@@ -64,11 +72,10 @@ export default {
 
   methods: {
     showDropdown() {
-        console.log('hi');
+  
       this.dropdownState = !this.dropdownState;
     },
     itemClick(index) {
-      console.log(index);
       this.itemActive = index;
     },
     hideDropdown() {
