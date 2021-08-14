@@ -4,13 +4,14 @@
     <div class="dialog dialog-employee" :class="{ 'dialog-show': isHide }">
       <div class="modal"></div>
       <div class="dialog-content">
-        <div class="dialog-content-header">THÔNG TIN NHÂN VIÊN
+        <div class="dialog-content-header">
+          <div class="content-text-modal">THÔNG TIN NHÂN VIÊN</div>
           <base-button
-          :buttonType="'m-second-button'"
-          :buttonFunction="'m-btn-exit'"
-          iconSize="icon-32"
-          iconType="icon-exit"
-          :btnClick="btnExitClick"
+            :buttonType="'m-second-button'"
+            :buttonFunction="'m-btn-exit'"
+            iconSize="icon-32"
+            iconType="icon-exit"
+            @click.native="btnExitClick"
           />
         </div>
         <div class="dialog-content-left">
@@ -115,16 +116,6 @@
               </BaseModalElement>
             </div>
             <div class="content-between-element">
-              <!-- <div class="element">
-                <div class="between-element-title">Nơi cấp</div>
-                <input
-                  id="IdentityPlace"
-                  type="text"
-                  class="input-dialog-employee"
-                  fieldname="IdentityPlace"
-                  v-model="employee.IdentityPlace"
-                />
-              </div> -->
               <BaseModalElement
                 elementModalName="Nơi cấp"
                 elementModalID="input-identity-place"
@@ -200,14 +191,6 @@
                 elementModalName="Vị trí"
                 elementModalID="input-position"
               >
-                <!-- <input
-                  slot="inputModal"
-                  id="DateOfBirth"
-                  type="date"
-                  class="input-dialog-employee"
-                  fieldname="DateOfBirth"
-                  v-model="employee.DateOfBirth"
-                /> -->
                 <base-dropdown-modal-2
                   slot="inputModal"
                   :id="'dropdown-position'"
@@ -224,14 +207,6 @@
                 elementModalName="Phòng ban"
                 elementModalID="input-department"
               >
-                <!-- <input
-                  slot="inputModal"
-                  id="DateOfBirth"
-                  type="date"
-                  class="input-dialog-employee"
-                  fieldname="DateOfBirth"
-                  v-model="employee.DateOfBirth"
-                /> -->
                 <base-dropdown-modal-2
                   slot="inputModal"
                   :id="'dropdown-department'"
@@ -301,6 +276,7 @@
                   name="date-join-company"
                   class="input-dialog-employee"
                   fieldname="JoinDate"
+                  v-model="employee.JoinDate"
                 />
               </div>
               <BaseModalElement
@@ -318,18 +294,21 @@
           </div>
         </div>
         <div class="dialog-content-footer">
-          <button class="btn m-btn-save" @click="btnSaveClick">
-            <div
-              class=""
-              style="font-size: 16px; margin-right: 8px; margin-left: 8px"
-            >
-              <i class="far fa-save"></i>
-            </div>
-            <div class="">Lưu</div>
-          </button>
-          <button class="btn m-btn-destroy" style="" @click="btnCancelClick">
-            <div class="btn-destroy-text">Hủy</div>
-          </button>
+          <div class="dialog-footer-button">
+            <base-button
+              :buttonType="'m-second-button'"
+              :buttonFunction="'m-btn-cancel'"
+              :textButton="'Hủy'"
+              @click.native="btnCancelClick"
+            />
+            <base-button
+              :buttonType="'btn'"
+              :buttonFunction="'m-btn-save'"
+              :fontAwesome="'far fa-save'"
+              @click.native="btnSaveClick"
+              :textButton="'Lưu'"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -339,13 +318,20 @@
 
 
 <script>
-import axios from "axios";
+//import axios from "axios";
 import BaseModalElement from "../../components/base/BaseModalElement.vue";
 import BaseDropdownModal2 from "../../components/base/BaseDropdownModal2.vue";
 import BaseDropdownModal from "../../components/base/BaseDropdownModal.vue";
 import BaseButton from "../../components/base/BaseButton.vue";
+import FormatData from "../../utils/FormatData.js";
+import EmployeesAPI from "../../api/components/EmployeesAPI";
 export default {
-  components: { BaseModalElement, BaseDropdownModal2, BaseDropdownModal, BaseButton },
+  components: {
+    BaseModalElement,
+    BaseDropdownModal2,
+    BaseDropdownModal,
+    BaseButton,
+  },
   props: {
     isHide: {
       type: Boolean,
@@ -363,6 +349,20 @@ export default {
   },
 
   methods: {
+    /*
+      Lấy mã nhân viên mới
+    */
+    getNewEmployeeCode() {
+      EmployeesAPI.getNewEmployeeCode()
+        .then((res) => {
+          this.employee.EmployeeCode = res.data;
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    },
+
     btnCancelClick() {
       // this.isHide=true;
       this.$emit("addEmployee", true);
@@ -380,28 +380,57 @@ export default {
     btnSaveClick() {
       let vm = this;
       if (this.formMode == 0) {
-        axios
-          .post(`http://cukcuk.manhnv.net/v1/Employees`, vm.employee)
+        EmployeesAPI.add(vm.employee)
+          // axios
+          //   .post(`http://cukcuk.manhnv.net/v1/Employees`, vm.employee)
           .then(() => {
             alert("thêm mới thành công");
             this.$emit("addEmployee", true);
+            //this.$emit("reLoadData");
           })
           .catch((res) => {
-            console.log(res);
+            switch (res.response.data.data["Server Error Code"]) {
+              case 1048:
+                alert("Họ tên ko được để trống"); // FullName null
+                break;
+              case 1062:
+                alert("Mã nhân viên đã tồn tại"); // Trùng key
+                break;
+              default:
+                alert(`Đã có lỗi xảy ra, mã lỗi`); // end up here all the time
+                break;
+            }
+          })
+          .finally(() => {
+            // this.$emit("loadData");
           });
       } else {
-        axios
-          .put(
-            `http://cukcuk.manhnv.net/v1/Employees/${vm.employeeId}`,
-            vm.employee
-          )
+        EmployeesAPI.update(vm.employeeId, vm.employee)
+          // axios
+          //   .put(
+          //     `http://cukcuk.manhnv.net/v1/Employees/${vm.employeeId}`,
+          //     vm.employee
+          //   )
           .then(() => {
             alert("Sửa thành công");
             this.$emit("addEmployee", true);
+            // this.$emit("reLoadData");
           })
           .catch((res) => {
-            console.log(res);
-            console.log(vm.employee);
+            switch (res.response.data.data["Server Error Code"]) {
+              case 1048:
+                alert("Họ tên ko được để trống"); // FullName null
+                break;
+              case 1062:
+                alert("Mã nhân viên đã tồn tại"); // Trùng key
+                break;
+              default:
+                alert(`Đã có lỗi xảy ra, mã lỗi`); // end up here all the time
+                break;
+            }
+          })
+          .finally(() => {
+            // this.$emit("loadData");
           });
       }
     },
@@ -425,18 +454,18 @@ export default {
       dropdownName__DEPARTMENT: "Department",
 
       // GENDER
-				Gender: ["Nam", "Nữ", "Không xác định"],
+      Gender: ["Nam", "Nữ", "Không xác định"],
 
       //workStatus
-      workStatus:['0','1'],
-				
+      workStatus: ["0", "1"],
     };
   },
   watch: {
     employeeId: function (value) {
       let vm = this;
-      axios
-        .get(`http://cukcuk.manhnv.net/v1/Employees/${value}`)
+      EmployeesAPI.getById(value)
+        // axios
+        //   .get(`http://cukcuk.manhnv.net/v1/Employees/${value}`)
         .then((res) => {
           console.log(res);
           vm.employee = res.data;
@@ -446,7 +475,20 @@ export default {
     formMode: function () {
       if (this.formMode == 0) {
         this.employee = {};
+        this.getNewEmployeeCode();
       }
+    },
+
+    "employee.DateOfBirth": function (val) {
+      this.employee.DateOfBirth = FormatData.formatDateDialog(val);
+    },
+
+    "employee.JoinDate": function (val) {
+      this.employee.JoinDate = FormatData.formatDateDialog(val);
+    },
+
+    "employee.IdentityDate": function (val) {
+      this.employee.IdentityDate = FormatData.formatDateDialog(val);
     },
   },
   computed: {

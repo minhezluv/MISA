@@ -1,9 +1,9 @@
 import APIConfig from "../config/APIConfig.js";
 import axios from "axios";
 
-var BaseAPIConfig = axios.create({
-  baseURL: APIConfig,
-  headers: { "Content-type": "application/json" },
+const BaseAPIConfig = axios.create({
+    baseURL: APIConfig,
+    headers: { "Content-type": "application/json" },
 });
 
 export default BaseAPIConfig;

@@ -4,22 +4,23 @@
       <div class="page-title">
         <div class="title">Danh sách nhân viên</div>
         <div class="page-feature">
-          <button
-            class="btn misa-btn-default btn-delete"
-            :class="{ buttonShow: isShowed }"
-            hidden
-          >
-            <div class="icon-delete icon-16 icon"></div>
-            <div class="btn-text" @click="deleteEmployee(false)">
-              Xóa nhân viên
-            </div>
-          </button>
-          <button class="btn misa-btn-default btn-add" >
-            <div class="icon-add icon-16 icon"></div>
-            <div class="btn-text" @click="addEmployee(false)">
-              Thêm nhân viên
-            </div>
-          </button>
+          <base-button
+             :buttonType="'btn misa-btn-default '"
+             :buttonFunction="'btn-delete'"
+             :iconType="'icon-delete'"
+             :iconSize="'icon-16'"
+             :textButton="'Xóa nhân viên'"
+             :class="{ hidden: hiddenButtonDelete }"
+             @click.native="deleteEmployee(deleteList)"
+          />
+          <base-button
+            :buttonType="'btn misa-btn-default '"
+            :buttonFunction="'btn-add'"
+            :iconType="'icon-add'"
+            :iconSize="'icon-16'"
+            :textButton="'Thêm nhân viên'"
+            @click.native="addEmployee(false)"
+          />
         </div>
       </div>
       <div class="filter-bar">
@@ -48,125 +49,68 @@
           />
         </div>
         <div class="filter-right">
-          <button class="btn m-second-button m-btn-refresh icon-refresh" @click="reloadData()"></button>
+          <button
+            class="btn m-second-button m-btn-refresh icon-refresh"
+            @click="reloadData()"
+          ></button>
         </div>
       </div>
-      <div class="grid grid-employee scroll-table">
-        <table class="table" width="100%" id="EmployeeList">
-          <thead fieldname="EmployeeId">
-            <th></th>
-            <th fieldname="EmployeeCode" formatType="code">Mã nhân viên</th>
-            <th fieldname="FullName">Họ và tên</th>
-            <th fieldname="GenderName">Giới tính</th>
-            <th
-              class="text-align-center"
-              fieldname="DateOfBirth"
-              formatType="ddmmyyyy"
-            >
-              Ngày sinh
-            </th>
-            <th fieldname="PhoneNumber">Số điện thoại</th>
-            <th fieldname="Email">Email</th>
-            <th fieldname="PositionName">Chức vụ</th>
-            <th fieldname="DepartmentName">Phòng ban</th>
-            <th fieldname="Salary" class="text-align-right" formatType="money">
-              Mức lương cơ bản
-            </th>
-            <th fieldname="WorkStatus">Tình trạng công việc</th>
-          </thead>
-          <tbody>
-            <tr
-              v-for="employee in employees"
-              :key="employee.EmployeeId"
-              @dblclick="upDateEmployee(employee.EmployeeId)"
-            >
-              <td>
-                <input
-                  type="checkbox"
-                  class="table-employee__checkbox"
-                  :value="employee.EmployeeId"
-                />
-                <span class="misa-checkmark"></span>
-              </td>
-              <td>{{ employee.EmployeeCode }}</td>
-              <td>{{ employee.FullName }}</td>
-              <td>{{ employee.GenderName }}</td>
-              <td class="text-align-center">
-                {{ formatDate(employee.DateOfBirth) }}
-              </td>
-              <td class="text-align-center">{{ employee.PhoneNumber }}</td>
-              <td>{{ employee.Email }}</td>
-              <td>{{ employee.PositionName }}</td>
-              <td>{{ employee.DepartmentName }}</td>
-              <td class="text-align-right">
-                {{ formatMoney(employee.Salary) }}
-              </td>
-              <td>{{ formatMoney(employee.WorkStatus) }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="paging-bar">
-        <div class="paging-left">
-          <div class="paging-left-text">Hiển thị 1-10/1000 Nhân viên</div>
-        </div>
-        <div class="pagination">
-          <button class="m-btn-page m-firstpage-icon"></button>
-          <button class="m-btn-page m-prevpage-icon"></button>
-          <div class="pagination-number">
-            <button class="m-btn-pagenumber active-page" style="">1</button>
-            <button class="m-btn-pagenumber">2</button>
-            <button class="m-btn-pagenumber">3</button>
-            <button class="m-btn-pagenumber" style="">4</button>
-          </div>
-          <button class="m-btn-page m-lastpage-icon"></button>
-          <button class="m-btn-page m-nextpage-icon"></button>
-        </div>
-        <div class="paging-right">
-          <div class="paging-right-text">10 nhân viên/trang</div>
-        </div>
-      </div>
+      <BaseTable
+        :columns="coEmployee"
+        :elements="employees"
+        :idOfRow="rowemployeeId"
+        @sendDelete="getDelete"
+        @sendId="getIdToUpdate"
+      />
     </div>
     <EmployeeDetail
       v-bind:isHide="isHideDialog"
       @addEmployee="addEmployee"
       v-bind:employeeId="employeeId"
       v-bind:formMode="formMode"
+     
     />
+    <base-popup
+    :buttonFunction="'btn-delete'"
+    :popupTitle="'Xóa bản ghi'"
+    :popupContent="`Bạn có chắc muốn xóa nhân viên ` +`${employeeDeleted}`+` không?`"
+    :textButtonCancel="'Hủy'"
+    :textButtonAccept="'Chấp nhận'"
+    :isHidePopup="true" />
   </div>
 </template>
 
 
 <script>
-import axios from "axios";
-import moment from "moment";
+//import axios from "axios";
+//import moment from "moment";
 import EmployeeDetail from "./EmployeeDetail.vue";
 import BaseDropDown from "../../components/base/BaseDropdown.vue";
-import $ from 'jquery'
+import BaseTable from "../../components/base/BaseTable.vue";
+import FormatData from "../../utils/FormatData.js";
+import EmployeeApi from "../../api/components/EmployeesAPI";
+import $ from "jquery";
+import BasePopup from "../../components/base/BasePopup.vue";
+import BaseButton from '../../components/base/BaseButton.vue';
 export default {
-  components: { EmployeeDetail, BaseDropDown },
+  components: { EmployeeDetail, BaseDropDown, BaseTable, BasePopup, BaseButton },
   Name: "EmployeeList",
   component: {},
-  mounted() {
-    var vm = this;
-    //Gọi Api lấy dữ liệu:
-    axios
-      .get("http://cukcuk.manhnv.net/v1/Employees")
-      .then((res) => {
-        vm.employees = res.data;
-        //   console.log(res.data);
-      })
-      .catch((res) => {
-        console.log(res);
-      });
-  },
-
   data() {
     return {
-      employees: [],
-      employeeId: null,
+      //mã nhân viên bị xóa
+      employeeDeleted:'String',
+      //danh sách id bị xóa
+      deleteList: [],
+      //hiện thị button xóa
+      hiddenButtonDelete: {
+        type: Boolean,
+        default: true,
+      },
+      //Form nhân viên
       isHideDialog: true,
       formMode: null,
+      employeeId: null,
       isShowed: {
         type: Boolean,
         default: false,
@@ -175,85 +119,176 @@ export default {
       APIurl__POSITION: "http://cukcuk.manhnv.net/v1/Positions",
       dropdownDefaultVal__POSITION: "Tất cả vị trí",
       dropdownName__POSITION: "Position",
-
+          
       // DEPARTMENT
       APIurl__DEPARTMENT: "http://cukcuk.manhnv.net/api/Department",
       dropdownDefaultVal__DEPARTMENT: "Tất cả phòng ban",
       dropdownName__DEPARTMENT: "Department",
+
+      //Employee
+      employees: [],
+      employee: {},
+      checkedId: [],
+      rowemployeeId: {
+        name: "EmployeeId",
+      },
+      coEmployee: [
+        {
+          name: "Mã nhân viên",
+          textLeft: true,
+          id: "EmployeeCode",
+        },
+        {
+          name: "Họ tên",
+          textLeft: true,
+          id: "FullName",
+        },
+        {
+          name: "Giới tính",
+          textLeft: true,
+          id: "GenderName",
+        },
+        {
+          name: "Ngày sinh",
+          textCenter: true,
+          id: "DateOfBirth",
+        },
+        {
+          name: "Điện thoại",
+          textCenter: true,
+          id: "PhoneNumber",
+        },
+        {
+          name: "Email",
+          textLeft: true,
+          id: "Email",
+        },
+        {
+          name: "Chức vụ",
+          textLeft: true,
+          id: "PositionName",
+        },
+        {
+          name: "Phòng ban",
+          textLeft: true,
+          id: "DepartmentName",
+        },
+        {
+          name: "Mức lương cơ bản",
+          textRight: true,
+          id: "Salary",
+        },
+        {
+          name: "Tình trạng công việc",
+          textLeft: true,
+          id: "WorkStatus",
+        },
+      ],
     };
   },
 
   methods: {
-    /**
-     * Hien thi form chi tiet khi nhan button
-     * CreatedBy:nqminh(1/8/2021)
-     */
-    addEmployee(isHide) {
-      this.isHideDialog = isHide;
-      this.formMode = 0;
-    },
-
-    upDateEmployee(employeeId) {
-      // alert(employeeId);
-      this.isHideDialog = false;
-      this.employeeId = employeeId;
-      this.formMode = 1;
-    },
-    refresh() {
-      alert("refresh");
-    },
-
-    /**
-     * Format ngày tháng
-     * CreatedBy: nqminh(29/7/2021)
-     */
-    formatDate(value) {
-      if (value) {
-        return moment(String(value)).format("DD/MM/YYYY");
-      }
-    },
-
-    //Format lai dinh dang tien
-    formatMoney(value) {
-      var num = Intl.NumberFormat().format(value);
-      return num;
-    },
-
-    /**
+     /**
      * load dư liệu
-     * 
+     *
      */
-    reloadData(){
-       $("tbody").empty();
-      this.employees = [];
-       var vm = this;
-      //Gọi Api lấy dữ liệu:
-      axios
-      .get("http://cukcuk.manhnv.net/v1/Employees")
+    reloadData() {
+      var point=this;
+       point.employees = [];
+      $("tbody").empty();
+      EmployeeApi.getAll()
       .then((res) => {
-        vm.employees = res.data;
-        //   console.log(res.data);
+        point.employees = res.data;
+        point.employees.forEach((item) => {
+          item.Salary = FormatData.formatMoney(item.Salary);
+          item.DateOfBirth = FormatData.formatDate(item.DateOfBirth);
+        });
       })
       .catch((res) => {
         console.log(res);
       });
     },
     /**
-     * Xóa dữ liệu
+     * Hien thi form chi tiet khi nhan button
+     * CreatedBy:nqminh(1/8/2021)
      */
-        deleteEmployee() {
-      alert("delete");
+    addEmployee(isHide) {
+   //   var vm=this;
+      this.isHideDialog = isHide;
+      this.formMode = 0;
+     if(this.employeeId ==true){
+         this.reloadData();
+     }
+    },
+      deleteEmployee(deleteList) {
+      var vm=this;
+      console.log(deleteList);
+      EmployeeApi.delete(deleteList)
+        .then(function () {
+          vm.deleteList="";
+          alert("Xóa thành công");
+        })
+        .catch((res) => {
+          console.log(res);
+        })
+        .finally(() => {
+          vm.reloadData();
+        });
+    },
+    getDelete(deleteList) {
+      this.deleteList = deleteList;
+      console.log(this.deleteList);
+    },
+
+    getIdToUpdate(id) {
+      this.employeeId = id;
+      this.isHideDialog = false;
+      this.formMode = 1;
     },
   },
+
+  created() {
+    var vm = this;
+    EmployeeApi.getAll()
+      .then((res) => {
+        vm.employees = res.data;
+        vm.employees.forEach((item) => {
+          item.Salary = FormatData.formatMoney(item.Salary);
+          item.DateOfBirth = FormatData.formatDate(item.DateOfBirth);
+        });
+      })
+      .catch((res) => {
+        console.log(res);
+      });
+  },
+
   watch: {
-    //  deleteByID: function(){
-    //       this.$emit('sendDeleteElement', this.deleteByID);
-    //     },
+    // employees: function () {
+    //   var vm = this;
+    //   EmployeeApi.getAll()
+    //     .then((res) => {
+    //       vm.employees = res.data;
+    //       vm.employees.forEach((item) => {
+    //         item.Salary = FormatData.formatMoney(item.Salary);
+    //         item.DateOfBirth = FormatData.formatDate(item.DateOfBirth);
+    //       });
+    //     })
+    //     .catch((res) => {
+    //       console.log(res);
+    //     });
+    // },
+
+    deleteList: function () {
+      if (this.deleteList.length == 0) {
+        this.hiddenButtonDelete = true;
+      } else {
+        this.hiddenButtonDelete = false;
+      }
+    },
   },
 };
 </script>
 
 
 <style scoped>
-
 </style>

@@ -1,23 +1,21 @@
-.filter-bar{
+.filter-bar {
     position: relative;
     width: 100%;
-   
     align-items: center;
     height: 40px;
-    border: 1px ;
+    border: 1px;
     display: inline-block;
+    padding-bottom: 2px
 }
 
-.filter-bar .filter-right{
-    position:  absolute;
+.filter-bar .filter-right {
+    position: absolute;
     right: 16px;
-
 }
 
-.filter-bar .filter-left{
+.filter-bar .filter-left {
     position: absolute;
     height: 40px;
     display: flex;
     width: 80%;
 }
-

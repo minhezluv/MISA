@@ -11,6 +11,12 @@
     z-index: 1001;
 }
 
+.content-text-modal {
+    font-family: MISAGoogleSans-Bold;
+    width: 227px;
+    padding-top: 20px;
+}
+
 .dialog .modal {
     position: fixed;
     top: 0;
@@ -26,11 +32,8 @@
     height: 49px;
     border: 1px solid white;
     border-radius: 4px 4px 0 0px;
-    display: flex;
-    align-items: center;
     padding-left: 24px;
     font-size: 20px;
-    font-family: MISAGoogleSans;
 }
 
 .dialog .dialog-content .dialog-content-left {
@@ -44,7 +47,7 @@
     left: 206px;
     position: absolute;
     width: calc(100% - 206px);
-    height: 593px;
+    height: calc(100% - 131px);
     margin-left: 0;
     top: 51px;
     overflow-y: auto;
@@ -126,4 +129,11 @@
 
 .dialog-show {
     display: none;
+}
+
+.dialog-footer-button {
+    padding: 10px 24px 10px;
+    display: flex;
+    position: fixed;
+    right: 0;
 }

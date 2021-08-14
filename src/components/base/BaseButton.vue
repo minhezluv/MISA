@@ -1,7 +1,8 @@
 <template>
-  <button  :class="[buttonFunction, buttonType]" @click="btnClick"  @keydown.enter="btnClick">
-    <div v-if="iconType" class="icon" :class="[iconType, iconSize]"></div>
-    <div class="btn-text" v-if="textButton" v-text="textButton"></div>
+  <button  :class="[buttonFunction, buttonType]">
+    <div v-if="iconType" class="icon btn-text" :class="[iconType, iconSize]"></div>
+    <i  v-if="fontAwesome" class="btn-text" :class="[fontAwesome]" ></i>
+    <div  v-if="textButton" v-text="textButton"></div>
   </button>
 </template>
 
@@ -25,9 +26,14 @@ export default {
     },
 
     textButton: String,
-    btnClick:{
-      type: Function
-    }
+    // btnClick:{
+    //   type: Function,
+ 
+    // },
+    fontAwesome:{
+      type:String,
+      default:'',
+    },
   },
 };
 </script>

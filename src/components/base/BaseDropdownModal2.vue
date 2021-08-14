@@ -1,7 +1,5 @@
 <template lang="">
-
       <label  @blur="hideDropdown()"  @click="showDropdown()" class="wrapper dropdown wrapper-size-34 ">
-  
         <div class="dropdown-header-wrapper">
           <span class="dropdown-value">
             {{ dropdownBindValue }}

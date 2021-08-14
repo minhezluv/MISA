@@ -9,6 +9,7 @@
 @import url('Text-box.css');
 @import url('Filter-bar.css');
 @import url('Account.css');
+@import url('Popup.css');
 body {
     font-family: MISAGoogleSans;
     font-size: 13px;
@@ -69,4 +70,8 @@ body {
 ::-webkit-scrollbar-thumb {
     background-color: grey;
     border-radius: 3px;
+}
+
+.hidden {
+    display: none;
 }
